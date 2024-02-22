@@ -1,4 +1,4 @@
-package com.grupo9.bookingviajes.model;
+package com.grupo6.bookingviajes.model;
 
 
 import javax.persistence.*;
