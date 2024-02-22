@@ -20,7 +20,6 @@ const Search = ({ handleSearch }) => {
   return (
     <div className={style.searchContainer}>
       <h1 className={style.searchTitle}>
-        Buscar ofertas en hoteles, casas y mucho más
       </h1>
       <form className={style.searchForm} onSubmit={handleSubmit}>
         <SelectCity getCity={getCity} />

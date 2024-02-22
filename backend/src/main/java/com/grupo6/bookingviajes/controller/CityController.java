@@ -1,4 +1,4 @@
-package com.grupo9.bookingviajes.controller;
+package com.grupo6.bookingviajes.controller;
 
 import com.grupo6.bookingviajes.model.City;
 import com.grupo6.bookingviajes.services.CityService;
