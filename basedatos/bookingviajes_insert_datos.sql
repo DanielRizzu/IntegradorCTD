@@ -35,12 +35,12 @@ insert into city values
 
 insert into category values
 	( 1, 'All Inclusive', 'Todo Incluido', 'https://sevenstaraward.com/uploads/2016/02/news-1.jpg'),
-	( 2, 'Escapadas', 'Escapadas increibles', 'https://0521ptc2n2-grupo9-airc2cs3.s3.us-east-2.amazonaws.com/airc2cimgs/cabanas/1/cabana1-01-1366.jpg'),
+	( 2, 'Escapadas', 'Escapadas increibles', 'https://media.c5n.com/p/c5dbf42f1b804c44f0e2c6990c6a220a/adjuntos/326/imagenes/000/221/0000221578/790x0/smart/viaje-auto.jpg'),
 	( 3, 'Cruceros', 'Navega por lugares', 'https://0521ptc2n2-grupo9-airc2cs3.s3.us-east-2.amazonaws.com/airc2cimgs/glampings/1/glamping1-01-1366.jpg'),
-	( 4, 'Salidas Grupales', 'Mucho para hacer', 'https://0521ptc2n2-grupo9-airc2cs3.s3.us-east-2.amazonaws.com/airc2cimgs/departamentos/1/departamentos1-04-1366.jpg'),
-	( 5, 'Playas', 'En la Playa', '/category/casas-campestres');
+	( 4, 'Salidas Grupales', 'Mucho para hacer', 'https://camcrerodotcom.files.wordpress.com/2015/04/not21.jpg'),
+	( 5, 'Playas', 'En la Playa', 'https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2023/08/01/16908932497284.jpg');
 
-/*DESCRIBE product;*/
+
 insert into product (id, name, description, short_description, active, address, latitude, longitude, area, average_score, category_id, city_id, site_policies, hse_policies, cancellation_policies) values 
 	(1, 'Casa en La Plata', 'Hermosa casa en el centro de La Plata. Luminosa, con cálidos ambientes. 2 plantas, 4 habitaciones, 2 baños, parque y piscina.', '', 1, 'Calle 5 y 49', '-37.9702777', '-57.5955626', '150', '6', 1, 2, "Check-out: 10:30. En esta propiedad no está permitido realizar despedidas de solteros ni fiestas similares. No se permite fumar","Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus. Detector de humo. Depósito de seguridad","Agregá las fechas de tu viaje para obtener los detallles decancelación de esta estadía."),
     (2, 'Casa en Mar del Plata', 'Hermosa casa junto a la playa. Cuenta con 3 dormitorios, TV de pantalla plana con canales por cable, cocina equipada con microondas y heladera, lavarropas y 2 baños con bidet.', '', 1, 'Mar del plata 123','-37.9702777', '-57.5955626', '150', '4', 1, 3, "Check-out: 10:00. No se permiten fiestas","Se aplican las pautas de distanciamiento social y otras normas relacionadas con el coronavirus. Detector de humo. Depósito de seguridad","Agregá las fechas de tu viaje para obtener los detallles decancelación de esta estadía."),
