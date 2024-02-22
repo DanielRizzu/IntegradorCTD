@@ -42,7 +42,7 @@ header {
     font-weight: 300;
     margin-bottom: 7px;
     margin-left: 12px;
-    align-self: end;
+    align-self: center;
     color: var(--thirth-color);
   }
 }
