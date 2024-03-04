@@ -107,7 +107,8 @@ insert into image values
     
 insert into role values
 	(1, "USER"),
-	(2, "ADMIN");
+	(2, "ADMIN"),
+    (3, "SUPERUSER");
     
 insert into user values
     (1, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
