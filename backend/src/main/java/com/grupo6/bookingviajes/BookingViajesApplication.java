@@ -1,7 +1,11 @@
 package com.grupo6.bookingviajes;
 
+import com.grupo6.bookingviajes.model.City;
+import com.grupo6.bookingviajes.model.Country;
 import com.grupo6.bookingviajes.model.Role;
 import com.grupo6.bookingviajes.model.User;
+import com.grupo6.bookingviajes.repository.CityRepository;
+import com.grupo6.bookingviajes.repository.CountryRepository;
 import com.grupo6.bookingviajes.repository.RoleRepository;
 import com.grupo6.bookingviajes.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +27,21 @@ public class BookingViajesApplication {
 
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired
+	private CityRepository cityRepository;
+	@Autowired
+	private CountryRepository countryRepository;
 
 
 	@PostConstruct
 	public void cargarDatos(){
+		//CREACION COUNTRY Y CITY
+		Country country = new Country(1,"Argentina","AR");
+		countryRepository.save(country);
+
+		City city = new City(1,"Buenos Aires",country);
+		cityRepository.save(city);
+
 
 		//CREACION DE ROLES
 		Role rolUser = new Role(1,"USER");
@@ -39,9 +54,7 @@ public class BookingViajesApplication {
 		roleRepository.save(rolSuperUser);
 
 		//CREACION SUPERUSUARIO
-		User superusuario = new User();
-		superusuario.setName("Superuser");
-		superusuario.setPassword("super1234");
+		User superusuario = new User(1,"Super"," "," ","super1234",true,city,rolSuperUser);
 
 		////SE GUARDA EL USUARIO EN LA BDD
 		userRepository.save(superusuario);
@@ -52,7 +65,7 @@ public class BookingViajesApplication {
 
 	}
 
-
+	/*
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -65,5 +78,5 @@ public class BookingViajesApplication {
 			}
 		};
 	}
-
+	*/
 }
