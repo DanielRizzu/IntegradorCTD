@@ -65,7 +65,7 @@ public class BookingViajesApplication {
 
 	}
 
-	/*
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -78,5 +78,5 @@ public class BookingViajesApplication {
 			}
 		};
 	}
-	*/
+
 }

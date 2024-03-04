@@ -105,10 +105,6 @@ insert into image values
 	(49, 'image Playa Cancún', 'https://media.tacdn.com/media/attractions-content--1x-1/12/29/06/2b.jpg', 10),
 	(50, 'image Playa Cancún', 'https://blog.vivaaerobus.com/wp-content/uploads/2019/12/Mejores-Playas-de-Canc%C3%BAn.jpg', 10);
     
-insert into role values
-	(1, "USER"),
-	(2, "ADMIN"),
-    (3, "SUPERUSER");
     
 insert into user values
     (1, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
