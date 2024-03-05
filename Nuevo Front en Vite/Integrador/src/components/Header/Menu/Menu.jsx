@@ -26,7 +26,7 @@ const Menu = () => {
 
   return (
     <>
-      <div>
+      <div className='nav-conteiner'>
         {/* Menu hamburguesa */}
         <button
           className={style.openMenu}
@@ -45,7 +45,7 @@ const Menu = () => {
                 </Link>
               )}
               {pathname !== '/login' && (
-                <Link to="/login" className="btn btn2">
+                <Link to="/login" className="btn btn1">
                   Iniciar sesión
                 </Link>
               )}

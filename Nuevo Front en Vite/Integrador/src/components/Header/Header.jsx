@@ -12,7 +12,7 @@ const Header = () => {
           <Link to="/" aria-label="Página de inicio de Equipo ">
             <img src={logo} alt="logo" />
           </Link>
-          <span className={style.motto}>Lo buscas lo encontras</span>
+          <span className={style.motto}>VIAJANDO</span>
         </div>
         <Menu />
       </nav>
