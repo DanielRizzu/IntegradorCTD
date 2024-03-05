@@ -53,18 +53,7 @@ const Product = ({
       <div className={style.cardDetails}>
         <div className={style.row1}>
           <div className={style.productInitialContainer}>
-            <div className={style.productCategoryContainer}>
-              <p className={style.productCategory}>{category.name}</p>
-              <FontAwesomeIcon className={style.productStars} icon={faStar} />
-            </div>
             <h5 className={style.productTitle}>{title}</h5>
-          </div>
-          {/* Score */}
-          <div className={style.productScore}>
-            <span className={style.scoreNumber}>
-              {averageScore ? averageScore : 1}
-            </span>
-            <p className={style.scoreText}>{textScore(averageScore)}</p>
           </div>
         </div>
 

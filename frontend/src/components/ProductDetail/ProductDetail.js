@@ -58,17 +58,6 @@ const ProductDetail = ({
             <p className={style.locationDistance}>{city.name}</p>
           </div>
         </div>
-        <div className={style.productScore}>
-          <div>
-            <p>Muy bueno</p>
-            <FontAwesomeIcon className={style.productStars} icon={faStar} />
-            <FontAwesomeIcon className={style.productStars} icon={faStar} />
-            <FontAwesomeIcon className={style.productStars} icon={faStar} />
-            <FontAwesomeIcon className={style.productStars} icon={faStar} />
-            <FontAwesomeIcon className={style.productStars} icon={faStar} />
-          </div>
-          <span className={style.scoreNumber}>8</span>
-        </div>
       </section>
 
       <section className={style.galleryContainer}>

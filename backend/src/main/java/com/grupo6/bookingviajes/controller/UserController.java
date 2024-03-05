@@ -21,9 +21,6 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class UserController {
 
-    /*@Autowired
-    private UserService userService;*/
-
     @Autowired
     private UserServiceImpl userService;
 
