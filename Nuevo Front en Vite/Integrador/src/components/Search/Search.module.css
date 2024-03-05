@@ -1,6 +1,6 @@
 .searchContainer {
-  background-color: var(--secondary-color);
-  padding: 24px 10px 10px 10px;
+  background-color: rgba(44, 15, 230);
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +51,7 @@
 
 @media (min-width: 768px) {
   .searchContainer {
-    height: 139px;
+    height: 100px;
   }
   .searchTitle {
     max-width: 768px;
@@ -70,7 +70,7 @@
 
 @media (min-width: 1333px) {
   .searchContainer {
-    height: 149px;
+    height: 100px;
   }
   .selectCity {
     max-width: 422px;

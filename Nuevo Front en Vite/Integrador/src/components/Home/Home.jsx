@@ -3,6 +3,7 @@ import Categories from '../Categories/Categories';
 import ProductListContainer from '../ProductListContainer/ProductListContainer';
 import Search from '../Search/Search';
 import style from './Home.module.css';
+import { Slider } from '../Slider/Slider';
 
 const Home = () => {
   const [searchCity, setSearchCity] = useState(null);
@@ -22,6 +23,7 @@ const Home = () => {
 
   return (
     <div className={style.homeContainer}>
+      <Slider />
       <Search handleSearch={handleSearch} />
       <Categories handleFilterCategories={handleFilterCategories} />
       <ProductListContainer
