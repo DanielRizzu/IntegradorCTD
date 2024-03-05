@@ -4,6 +4,7 @@ import com.grupo6.bookingviajes.model.Category;
 import com.grupo6.bookingviajes.model.City;
 import com.grupo6.bookingviajes.model.Product;
 import com.grupo6.bookingviajes.response.ApiResponseHandler;
+import com.grupo6.bookingviajes.services.CategoryService;
 import com.grupo6.bookingviajes.services.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,6 +27,9 @@ public class ProductController {
 
     @Autowired
     private ProductService prodctService;
+
+    @Autowired
+    private CategoryService categoryService;
 
     @GetMapping
     public ResponseEntity<List<Product>> listarProductos(){
@@ -51,6 +55,17 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+    /*@GetMapping("/category/{id}")
+    public ResponseEntity<List<Product>> searchProductByCategory(@PathVariable Integer id) {
+        Optional<Category> category = categoryService.searchCategory(id);
+        if (category.isPresent()) {
+            List<Product> products = prodctService.getProductsByCategory(category.get());
+            return ResponseEntity.ok(products);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }*/
 
     @PostMapping("/create")
     public ResponseEntity<Product> crearProducto(@RequestBody Product product){
