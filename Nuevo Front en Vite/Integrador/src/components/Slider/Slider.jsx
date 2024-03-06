@@ -1,16 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Slider.css'
 import { Card } from '../Card/Card'
-
-const images = [
-    'https://images.unsplash.com/photo-1520520731457-9283dd14aa66?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-]
+import { arraySlider } from '../../assets/array'
 
 export const Slider = () => {
+
+    const [current, setCurrent] = useState(0);
+    const [images, setImages] = useState(arraySlider);
+    const [title, setTitle] = useState('');
+    const[descr, setDescr] = useState('');
+    const [url, setUrl] = useState('');
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            let title = images[current].title
+            let description = images[current].description
+            let link = images[current].url
+
+            setTitle(title);
+            setDescr(description);
+            setUrl(link);
+
+            console.log(url);
+            nextImage();
+
+        },4000) 
+    },[current])
+
+    const nextImage = ()=>{
+        if (current === images.length - 1) {
+            setCurrent(0); // Reiniciar al principio
+        } else {
+            setCurrent(current + 1);
+        }
+    }
+
+
+
+
     return (
-        <div className="slider" style={{backgroundImage: `url(${images[1]})`}}>
-            <Card />
+        <div className="slider" style={{backgroundImage: `url(${url})`}}>
+            <Card title={title} description={descr} />
         </div>  
     )
 }
