@@ -63,18 +63,18 @@ const ProductBooking = () => {
         <div className={style.leftCenterContainer}>
           {/* Completá tus datos */}
           <section>
-            <h2>Completá tus datos</h2>
+            <h2>Completá los datos</h2>
             <BookingDataUser />
           </section>
           <section className={style.reserveDateContainer}>
-            <h2>Seleccioná tu fecha de reserva</h2>
+            <h2>Seleccioná fecha de reserva</h2>
             <div className="bookingCalendar">
               <Calendar inline={true} reserved={bookingDate} />
             </div>
           </section>
           {/* Tu horario de llegada */}
           <section>
-            <h2>Tu horario de llegada</h2>
+            <h2>horario de llegada</h2>
             <BookingCheckIn getCheckInTime={getCheckInTime} />
           </section>
         </div>

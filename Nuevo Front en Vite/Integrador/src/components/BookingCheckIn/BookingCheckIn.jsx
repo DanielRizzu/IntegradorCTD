@@ -35,7 +35,7 @@ const BookingCheckIn = ({ getCheckInTime }) => {
       <div className={style.checkInText}>
         <FontAwesomeIcon icon={faCircleCheck} />
         <p>
-          Tu habitación va a estar lista para el check-in entre las{' '}
+          Reserva lista para Check-in entre las{' '}
           {rangeInitialTime}{' '}
           {Number(rangeInitialTime.slice(0, 2)) < 12 ? 'AM' : 'PM'} y las{' '}
           {rangeFinishTime}{' '}
@@ -43,7 +43,7 @@ const BookingCheckIn = ({ getCheckInTime }) => {
         </p>
       </div>
       <div className={style.checkInTime}>
-        <p>Indicá tu horario estimado de llegada</p>
+        <p>Horario estimado de llegada</p>
         <div className={style.selectTimeContainer}>
           <SelectTime getArrivalTime={getArrivalTime} />
         </div>

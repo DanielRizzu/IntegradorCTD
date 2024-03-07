@@ -1,5 +1,5 @@
 .searchContainer {
-  background-color: rgba(44, 15, 230);
+  background-color: var(--thirth-color);
   padding: 10px;
   display: flex;
   flex-direction: column;

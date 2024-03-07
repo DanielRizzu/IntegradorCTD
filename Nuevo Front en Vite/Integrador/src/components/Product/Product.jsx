@@ -61,7 +61,7 @@ const Product = ({
           <p className={style.productLocation}>
             <FontAwesomeIcon icon={faLocationDot} /> {location.name} -{' '}
             <Link className={style.linkLocation} href="#a">
-              Mostrar en el mapa
+              Ver ubicacion
             </Link>{' '}
           </p>
           {/* attributes */}

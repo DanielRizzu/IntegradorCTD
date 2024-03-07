@@ -36,7 +36,8 @@ const ProductHeader = () => {
       </div>
       <div className={style.headerRight}>
         <Link to={backUrl}>
-          <FontAwesomeIcon icon={faChevronLeft} />
+          {/* <FontAwesomeIcon icon={faChevronLeft} /> */}
+          Volver
         </Link>
       </div>
     </section>

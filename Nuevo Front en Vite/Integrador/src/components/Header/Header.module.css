@@ -5,7 +5,7 @@ header {
 }
 
 .nav {
-  background-color: rgba(44, 15, 230);
+  background-color: var(--thirth-color);
   width: 100%;
   display: flex;
   justify-content: space-between;

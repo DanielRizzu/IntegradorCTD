@@ -62,7 +62,7 @@ div.nav-conteiner{
 }
 
 .btn1:hover {
-  background-color:  rgb(34, 9, 197);
+  background-color: var(--primary-color);
   border-color: var(--secondary-color);
 }
 

@@ -22,7 +22,7 @@ const Categories = ({ handleFilterCategories }) => {
 
   return (
     <div className={style.categoriesContainer}>
-      <h2>Buscar</h2>
+      <h2>Categorias</h2>
       <div className={style.categoriesList}>
         {isLoading ? (
           <>

@@ -54,8 +54,8 @@ const ProductDetail = ({
         <div className={style.locationContainer}>
           <FontAwesomeIcon icon={faLocationDot} />
           <div className={style.location}>
-            <p>Buenos Aires, Ciudad Autonoma de Buenos Aires, Argentina.</p>
-            <p className={style.locationDistance}>{city.name}</p>
+            <p>Planeta Tierra</p>
+            {/* <p className={style.locationDistance}>{city.name}</p> */}
           </div>
         </div>
       </section>
@@ -74,7 +74,7 @@ const ProductDetail = ({
             <Calendar inline={true} />
           </div>
           <div className={style.reserveContainer}>
-            <p>Agregá tus fechas de viaje para obtener precios exactos</p>
+            <p>Ventana de reserva</p>
             {/*provisorio, realizar bien la validacion y redireccion */}
             <button
               className="btn btn2 w-100"
@@ -84,7 +84,7 @@ const ProductDetail = ({
                   : redirectToLogin();
               }}
             >
-              Iniciar reserva
+              Hacer reserva
             </button>
           </div>
         </div>

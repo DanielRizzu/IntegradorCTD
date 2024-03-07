@@ -1,10 +1,10 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFacebook,
-  faLinkedinIn,
-  faTwitter,
   faInstagram,
+  faGithub,
+  faSnapchat,
+  faGoogle,
 } from '@fortawesome/free-brands-svg-icons';
 import style from './Social.module.css';
 
@@ -14,16 +14,16 @@ const Social = ({ activeWidth }) => {
       className={`${style.social} ${activeWidth < 768 ? style.socialMenu : ''}`}
     >
       <a href="#a">
-        <FontAwesomeIcon icon={faFacebook} />
+        <FontAwesomeIcon icon={faSnapchat} />
       </a>
       <a href="#a">
-        <FontAwesomeIcon icon={faLinkedinIn} />
-      </a>
-      <a href="#a">
-        <FontAwesomeIcon icon={faTwitter} />
+        <FontAwesomeIcon icon={faGithub} />
       </a>
       <a href="#a">
         <FontAwesomeIcon icon={faInstagram} />
+      </a>
+      <a href="#a">
+        <FontAwesomeIcon icon={faGoogle} />
       </a>
     </div>
   );

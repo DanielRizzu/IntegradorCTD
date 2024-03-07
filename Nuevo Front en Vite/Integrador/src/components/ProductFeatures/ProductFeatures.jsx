@@ -7,7 +7,7 @@ const ProductFeatures = ({ attributes }) => {
   //console.log('attributes', attributes);
   return (
     <section className={style.featureListContainer}>
-      <h2>¿Que ofrece este lugar?</h2>
+      <h2>Sobre el paquete</h2>
       <hr className={style.line} />
       <div className={style.featureList}>
         {attributes?.slice(0, 8).map((attribute) => (

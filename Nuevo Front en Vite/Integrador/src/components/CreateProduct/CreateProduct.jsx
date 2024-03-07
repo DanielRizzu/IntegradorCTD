@@ -276,14 +276,14 @@ const CreateProduct = () => {
 
   return (
     <div className={style.container}>
-      <h2>Crear propiedad</h2>
+      <h2>Crear Paquete</h2>
       <form className={style.formProduct} onSubmit={handleSubmit}>
         <section className={style.initialDataProperty}>
           <div className={style.doubleProperty}>
             <Input
               state={propertyName}
               changeState={setPropertyName}
-              label="Nombre de la propiedad"
+              label="Nombre del paquete"
               id="propertyName"
               name="propertyName"
               placeholder="Texto"
@@ -326,12 +326,12 @@ const CreateProduct = () => {
           />
         </section>
         <section className={style.containerAttributes}>
-          <h2>Agregar atributos</h2>
+          <h2>Atributos</h2>
           {/* <SelectAttribute /> */}
           <AddAttribute getAttributes={getAttributes} />
         </section>
         <section className={style.containerPolicies}>
-          <h2>Políticas del producto</h2>
+          <h2>Información importante</h2>
           <div className={style.subContainerPolicies}>
             <AddPolicy
               titlePolicy={'Normas del establecimiento'}
@@ -358,7 +358,7 @@ const CreateProduct = () => {
               <div>
                 <FontAwesomeIcon icon={faCircleExclamation} />
               </div>
-              <p>Debe ingresar como mínimo 5 (cinco) imágenes</p>
+              <p>Debe ingresar mínimo 5 (cinco) imágenes</p>
             </div>
           )}
         </section>

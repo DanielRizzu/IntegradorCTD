@@ -12,10 +12,10 @@ const AddAttribute = ({ getAttributes }) => {
     value: '',
     valid: null,
   });
-  const [attributeIcon, setAttributeIcon] = useState({
-    value: '',
-    valid: null,
-  });
+  // const [attributeIcon, setAttributeIcon] = useState({
+  //   value: '',
+  //   valid: null,
+  // });
   const [msgError, setMsgError] = useState(null);
 
   //console.log('attributeName', attributeName);
@@ -24,7 +24,8 @@ const AddAttribute = ({ getAttributes }) => {
 
   useEffect(() => {
     setMsgError(null);
-  }, [attributeName.value, attributeIcon.value]);
+  // }, [attributeName.value, attributeIcon.value]);
+   }, [attributeName.value]);
 
   useEffect(() => {
     getAttributes(arrayAttributes);
@@ -37,10 +38,11 @@ const AddAttribute = ({ getAttributes }) => {
   const handleAddAttribute = () => {
     setArrayAttributes([
       ...arrayAttributes,
-      { name: attributeName.value, icon: attributeIcon.value, valid: 'true' },
+      // { name: attributeName.value, icon: attributeIcon.value, valid: 'true' },
+      { name: attributeName.value, valid: 'true' },
     ]);
     setAttributeName({ value: '', valid: null });
-    setAttributeIcon({ value: '', valid: null });
+    // setAttributeIcon({ value: '', valid: null });
   };
 
   const handleDeleteAttribute = (attributeValue) => {
@@ -68,13 +70,13 @@ const AddAttribute = ({ getAttributes }) => {
                 type="text"
                 readonly
               />
-              <Input
+              {/* <Input
                 state={{ value: attributeArray.icon }}
                 //changeState={setImage}
                 label="Ícono"
                 type="text"
                 readonly
-              />
+              /> */}
             </div>
             <button
               className={`${style.btn} ${style.btnDelete}`}
@@ -96,14 +98,14 @@ const AddAttribute = ({ getAttributes }) => {
             placeholder="Wifi"
             error={msgError}
           />
-          <Input
+          {/* <Input
             state={attributeIcon}
             changeState={setAttributeIcon}
             label="Ícono"
             type="text"
             placeholder="fa-wifi"
             error={msgError}
-          />
+          /> */}
         </div>
         <button
           className={`${style.btn} ${style.btnPlus}`}

@@ -5,7 +5,7 @@ import style from './Footer.module.css';
 const Footer = () => {
   return (
     <div className={style.footerContainer}>
-      <p>Viajando</p>
+      <p>Viajando ™</p>
       <Social />
     </div>
   );

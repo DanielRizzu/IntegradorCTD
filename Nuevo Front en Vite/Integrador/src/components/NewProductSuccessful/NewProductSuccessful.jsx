@@ -25,11 +25,11 @@ const NewProductSuccessful = () => {
         <div className={style.text}>
           {/* <h1 className={style.gratefulness}>¡Muchas gracias!</h1> */}
           <p className={style.successful}>
-            Tu propiedad se ha creado con éxito
+            Tu paquete se ha creado con éxito
           </p>
         </div>
         <button className="btn btn2" onClick={() => navigate('/')}>
-          Ir a home
+          Volver al Home
         </button>
       </div>
     </div>
