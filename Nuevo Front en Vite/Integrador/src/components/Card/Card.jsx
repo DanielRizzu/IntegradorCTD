@@ -9,7 +9,6 @@ export const Card = ({ title, description}) => {
     <div className="slider-card">
         <h2>{title}</h2>
         <p>{description}</p>
-        <a className='btn btn-1'>Ver mas..</a>
     </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Slider.css'
 import { Card } from '../Card/Card'
-import { arraySlider } from '../../assets/array'
+import { arraySlider } from '../../utils/array'
 
 export const Slider = () => {
 
