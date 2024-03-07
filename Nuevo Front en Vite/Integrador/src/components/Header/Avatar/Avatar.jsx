@@ -16,7 +16,7 @@ const Avatar = () => {
         <div className={style.containerRole}>
           <Link to="/administration" className={style.textRole}>
             Panel Admin
-          </Link>{' '}
+          </Link>
           <span className={style.lineVertical}></span>
         </div>
       )}
@@ -24,7 +24,7 @@ const Avatar = () => {
         <div className={style.containerRole}>
           <Link to="/superuser" className={style.textRole}>
             Panel Super usuario
-          </Link>{' '}
+          </Link>
           <span className={style.lineVertical}></span>
         </div>
       )}

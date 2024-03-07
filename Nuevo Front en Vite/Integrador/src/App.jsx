@@ -14,6 +14,7 @@ import BookingSucces from './components/BookingSuccess/BookingSucces';
 import NotFound from './pages/NotFound/NotFound';
 import Administration from './pages/Administration/Administration';
 import NewProductSuccessful from './components/NewProductSuccessful/NewProductSuccessful';
+import { SuperAdministration } from './pages/Administration/SuperAdministration';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<SignUp />} />
+              <Route path="/signup" element={<SignUp />} /> 
               <Route
                 path="/products/:id"
                 element={<ProductDetailCointaner />}
@@ -36,6 +37,7 @@ function App() {
               <Route path="/product/:id/booking" element={<ProductBooking />} />
               <Route path="/booking/success" element={<BookingSucces />} />
               <Route path="/administration" element={<Administration />} />
+              <Route path="/superuser" element={<SuperAdministration />} />
               <Route
                 path="/successful-new-product"
                 element={<NewProductSuccessful />}
