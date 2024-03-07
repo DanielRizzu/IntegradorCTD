@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -31,6 +32,9 @@ public class BookingViajesApplication {
 	private CityRepository cityRepository;
 	@Autowired
 	private CountryRepository countryRepository;
+
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 
 	@PostConstruct
@@ -54,7 +58,9 @@ public class BookingViajesApplication {
 		roleRepository.save(rolSuperUser);
 
 		//CREACION SUPERUSUARIO
-		User superusuario = new User(1,"Super"," "," ","super1234",true,city,rolSuperUser);
+		String passEncryp = passwordEncoder.encode("Super1234");
+
+		User superusuario = new User(1,"Super"," ","superuser@superuser.com",passEncryp,true,city,rolSuperUser);
 
 		////SE GUARDA EL USUARIO EN LA BDD
 		userRepository.save(superusuario);
