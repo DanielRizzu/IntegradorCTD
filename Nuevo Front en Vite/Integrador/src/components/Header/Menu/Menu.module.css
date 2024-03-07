@@ -143,12 +143,12 @@ div.nav-conteiner{
 .containerRigth {
   display: flex;
   height: 100%;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .containerRigth {
-    display: block;
-    position: relative;
+    display: flex;
   }
 
   .btnGroup {

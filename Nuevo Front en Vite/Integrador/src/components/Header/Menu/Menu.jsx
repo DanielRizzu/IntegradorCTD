@@ -52,6 +52,7 @@ const Menu = () => {
             </div>
           ) : (
             <>
+              <Avatar />
               <button
                 className={style.closeMenu}
                 onClick={() => {
@@ -62,7 +63,6 @@ const Menu = () => {
               >
                 <FontAwesomeIcon icon={faXmark} />
               </button>
-              <Avatar />
             </>
           )}
         </div>

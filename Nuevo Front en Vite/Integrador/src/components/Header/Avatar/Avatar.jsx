@@ -20,6 +20,14 @@ const Avatar = () => {
           <span className={style.lineOrangeVertical}></span>
         </div>
       )}
+      {roleType === 'SUPERUSER' && (
+        <div className={style.containerRole}>
+          <Link to="/superuser" className={style.textRole}>
+            Panel Super usuario
+          </Link>{' '}
+          <span className={style.lineOrangeVertical}></span>
+        </div>
+      )}
       <div className={style.initialsContainer}>
         <span>{`${name.substring(0, 1)}${lastname.substring(0, 1)}`}</span>
       </div>

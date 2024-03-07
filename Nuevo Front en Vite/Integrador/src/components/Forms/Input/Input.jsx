@@ -59,7 +59,6 @@ const Input = ({
           name={name}
           value={state.value}
           onChange={onChange}
-          // onKeyUp={validation}
           placeholder={placeholder}
           onBlur={validation}
           valid={state.valid}
