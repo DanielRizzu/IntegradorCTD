@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   color: var(--white-color);
+  padding: 20px;
 }
 
 .headerLeft {

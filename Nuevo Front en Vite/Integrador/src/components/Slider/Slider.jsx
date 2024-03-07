@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './Slider.css'
-import { Card } from '../Card/Card'
+import { Card } from '../Cards/Card'
 import { arraySlider } from '../../utils/array'
 
 export const Slider = () => {
@@ -20,8 +20,7 @@ export const Slider = () => {
             setTitle(title);
             setDescr(description);
             setUrl(link);
-
-            console.log(url);
+            
             nextImage();
 
         },4000) 
