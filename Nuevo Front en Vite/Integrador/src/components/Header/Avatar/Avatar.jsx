@@ -17,7 +17,7 @@ const Avatar = () => {
           <Link to="/administration" className={style.textRole}>
             Panel Admin
           </Link>{' '}
-          <span className={style.lineOrangeVertical}></span>
+          <span className={style.lineVertical}></span>
         </div>
       )}
       {roleType === 'SUPERUSER' && (
@@ -25,7 +25,7 @@ const Avatar = () => {
           <Link to="/superuser" className={style.textRole}>
             Panel Super usuario
           </Link>{' '}
-          <span className={style.lineOrangeVertical}></span>
+          <span className={style.lineVertical}></span>
         </div>
       )}
       <div className={style.initialsContainer}>
