@@ -124,7 +124,7 @@ DROP TABLE IF EXISTS `db_bookingviajes`.`role` ;
 
 CREATE TABLE IF NOT EXISTS `db_bookingviajes`.`role` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
+  `role` enum('SUPERUSER', 'ADMIN', 'USER') NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 

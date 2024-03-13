@@ -19,6 +19,7 @@ public class User {
     private String password;
     private boolean enabled;
 
+
     @ManyToOne/*(cascade = CascadeType.ALL,fetch = FetchType.EAGER)*/
     @JoinColumn(name = "city_id", referencedColumnName = "id")
     private City city;
