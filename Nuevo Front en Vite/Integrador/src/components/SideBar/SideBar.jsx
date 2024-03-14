@@ -72,7 +72,7 @@ const SideBar = () => {
               roleType === 'ADMIN' &&
               pathname !== '/administration' && (
                 <li>
-                  <Link to="/administration">Administraciónnn</Link>
+                  <Link to="/administration">Administración</Link>
                 </li>
               )}
           </ul>
