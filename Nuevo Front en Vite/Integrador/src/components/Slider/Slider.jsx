@@ -38,8 +38,9 @@ export const Slider = () => {
 
 
     return (
-        <div className="slider" style={{backgroundImage: `url(${url})`}}>
-            <Card title={title} description={descr} />
-        </div>  
-    )
+        <div className={`slider`} style={{backgroundImage: `url(${url})`}}>
+            <div className={`Card`}>
+                <Card title={title} description={descr} />
+            </div>
+        </div>  )
 }

@@ -11,3 +11,11 @@ div.slider {
     background-size: cover;
     background-position-y: -150px;
 }
+
+@media (max-width: 768px) {
+div.slider{
+    justify-content: center;
+}
+
+
+}

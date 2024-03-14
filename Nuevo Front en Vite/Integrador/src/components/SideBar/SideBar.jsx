@@ -15,6 +15,7 @@ const SideBar = () => {
 
   const { pathname } = useLocation();
   const { width } = useWindowSize();
+  
 
   const toggleMenu = () => {
     const overlay = document.querySelector('.overlay');
