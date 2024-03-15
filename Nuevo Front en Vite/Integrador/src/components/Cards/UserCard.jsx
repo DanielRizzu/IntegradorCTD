@@ -8,6 +8,11 @@ export const UserCard = ( { id, username, rol, onEdit, onDelete } ) => {
   }
 
   const handleDelete= ()=>{
+    const userInfo = {
+      id,
+      username,
+      rol,
+    }
     onDelete(id)
   }
 

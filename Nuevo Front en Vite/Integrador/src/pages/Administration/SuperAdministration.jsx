@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader'
 import { UserCard } from '../../components/Cards/UserCard'
 import style from './SuperAdministration.module.css'
+import { EditUser } from '../../components/Forms/EditUser/EditUser'
 
 export const SuperAdministration = () => {
 
@@ -19,12 +22,27 @@ export const SuperAdministration = () => {
     fetchUsers();
   },[])
 
+  const MySwal = withReactContent(Swal)
+
   const handleEdit = (id)=>{
     console.log("Editar id: "+ id);
+
+    MySwal.fire({
+      html: <EditUser/>
+    })
   }
 
   const handleDelete = (id)=>{
     console.log('Eliminar id: ' + id);
+    MySwal.fire({
+      title: "¿Estás seguro de querer eliminar éste usuario?",
+      text: "Una vez eliminar será imposible revertir los cambios",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#5191c1",
+      cancelButtonColor: "#99082c",
+      confirmButtonText: "Si, eliminalo!"
+    })
   }
 
 
