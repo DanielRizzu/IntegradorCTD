@@ -6,6 +6,11 @@ import baseUrl from '../../../utils/baseUrl.json';
 import { Link, useNavigate } from 'react-router-dom';
 import { userContext } from '../../../context/UserContext';
 import Spinner from '../../Spinner/Spinner';
+import { Snackbar} from '@mui/material';
+import MuiAlert from '@mui/material/Alert';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from "@mui/material/Button";
+
 
 const SignUp = () => {
   const [name, setName] = useState({ value: '', valid: null });
@@ -13,10 +18,12 @@ const SignUp = () => {
   const [email, setEmail] = useState({ value: '', valid: null });
   const [password, setPassword] = useState({ value: '', valid: null });
   const [password2, setPassword2] = useState({ value: '', valid: null });
-
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const [isFormValid, setIsFormValid] = useState(null);
   const [msgError, setMsgError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingButton, setLoadingButton] = useState(false); // 1. Agregar estado para controlar la carga del botón
+
 
   const { loginUser } = useContext(userContext);
 
@@ -88,13 +95,21 @@ const SignUp = () => {
     );
   };
 
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackbar(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     validateInputs();
     setIsFormValid(true);
-
+  
     if (validateForm()) {
-      setIsLoading(true);
+      setLoadingButton(true);
+  
       const data = {
         name: name.value,
         lastName: lastName.value,
@@ -104,24 +119,21 @@ const SignUp = () => {
         city: { id: 1 },
         role: { id: 1 },
       };
-      let responseClone = ''; //1
-      await fetch(`${baseUrl.url}/users/create`, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => {
-          responseClone = res.clone(); //2
-          return res.json();
-        })
-        .then(
-          (data) => {
-            //console.log(data);
-            if (data.status === 200 || data.status === 201) {
-              localStorage.clear();
-              fetch(`${baseUrl.url}/authenticate`, {
+  
+      try {
+        const response = await fetch(`${baseUrl.url}/users/create`, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+  
+        try {
+          let responseData = await response.json();
+          if (response.ok) {
+            try {
+              const loginResponse = await fetch(`${baseUrl.url}/authenticate`, {
                 method: 'POST',
                 body: JSON.stringify({
                   email: email.value,
@@ -130,50 +142,51 @@ const SignUp = () => {
                 headers: {
                   'Content-Type': 'application/json',
                 },
-              })
-                .then((res) => res.json())
-                .then((data) => {
-                  setIsLoading(false);
-                  loginUser({ ...data, redirect: false });
+              });
+              
+              const loginData = await loginResponse.json();
+          
+              if (loginResponse.ok) {
+                setIsLoading(true);
+                loginUser({ ...loginData, redirect: false });
+                setOpenSnackbar(true);
+                setTimeout(() => {
                   navigate('/');
-                })
-                .catch((err) => {
-                  setIsFormValid(false);
-                  setIsLoading(false);
-                  setMsgError(
-                    'La cuenta se ha creado exitosamente, pero hay un error al intentar loguearse.'
-                  );
-                  //console.log('error', err);
-                });
-            } else {
+                }, 3000);
+              } else {
+                setIsFormValid(false);
+                setIsLoading(false);
+                setMsgError(
+                  'La cuenta se ha creado exitosamente, pero hay un error al intentar loguearse.'
+                );
+                setOpenSnackbar(true);
+              }
+              setIsLoading(false);
+              setTimeout(() => {
+                setLoadingButton(false);
+              }, 100);
+            } catch (error) {
+              console.error('Error al iniciar sesión:', error);
               setIsFormValid(false);
               setIsLoading(false);
-              setMsgError(
-                'Lamentablemente no ha podido registrarse. Por favor intente más tarde'
-              );
+              setMsgError('La cuenta se ha creado exitosamente, pero hay un error al intentar loguearse.');
+              setOpenSnackbar(true);
             }
-          },
-          function (rejectionReason) {
-            // 3
-            // console.log(
-            //   'Error parsing JSON from response:',
-            //   rejectionReason,
-            //   responseClone
-            // ); // 4
-            responseClone
-              .text() // 5
-              .then(function (bodyText) {
-                // console.log(
-                //   'Received the following instead of valid JSON:',
-                //   bodyText
-                // ); // 6
-                setIsFormValid(false);
-                setMsgError(`${bodyText}`);
-              });
-          }
-        );
+          } else {
+            console.error('Error al registrar:', responseData.message);
+            setOpenSnackbar(true);
+            setIsFormValid(false);
+          }   
+        } catch (error) {
+          console.error('Error al parsear JSON:', error);
+        }
+      } catch (error) {
+        console.error('Error al registrar:', error);
+        setOpenSnackbar(true);
+        setIsFormValid(false);
+      }
     }
-  };
+  }
 
   return (
     <div className={style.containerForms}>
@@ -248,9 +261,20 @@ const SignUp = () => {
                   : 'Por favor vuelva a intentarlo, algunos de los datos ingresados no son correctos.'}
               </p>
             )}
-            <button type="submit" className={`btn btn2 ${style.submitButton}`}>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 5, mb: 5 }}
+                disabled={loadingButton} // 3. Deshabilitar el botón mientras se carga
+>
+  {loadingButton ? (
+    <CircularProgress size={24} color="primary" />  ) : ('Crear Cuenta')}
+              </Button>
+
+            {/*<button type="submit" className={`btn btn2 ${style.submitButton}`}>
               Crear cuenta
-            </button>
+            </button>*/}
             <p className={style.linkContainer}>
               ¿Ya tienes una cuenta?{' '}
               <Link className={style.linkAction} to="/login">
@@ -260,6 +284,22 @@ const SignUp = () => {
           </div>
         </form>
       )}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+      >
+        <MuiAlert
+          elevation={6}
+          variant="filled"
+          onClose={handleCloseSnackbar}
+          severity={isFormValid ? 'success' : 'error'}
+        >
+          {isFormValid
+            ? '¡Registrado con éxito! Redireccionando a inicio de sesión...'
+            : 'Error: Por favor, verifica los campos e intenta nuevamente.'}
+        </MuiAlert>
+      </Snackbar>
     </div>
   );
 };

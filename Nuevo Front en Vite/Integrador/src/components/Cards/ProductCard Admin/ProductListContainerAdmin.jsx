@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import style from './ProductListContainer.module.css';
-import baseUrl from '../../utils/baseUrl.json';
-import ProductList from '../ProductList/ProductList'
+import style from '../../ProductListContainer/ProductListContainer.module.css';
+import baseUrl from '../../../utils/baseUrl.json';
+import ProductListAdmin from './ProductListAdmin';
 
-const ProductListContainer = ({
+const ProductListContainerAdmin = ({
   searchCity,
   searchRangeDates,
   filterCategories,
@@ -55,10 +55,10 @@ const ProductListContainer = ({
 
   return (
     <div className={style.container}>
-      <ProductList products={products} isLoading={isLoading} />
+      <ProductListAdmin products={products} isLoading={isLoading} />
       
     </div>
   );
 };
 
-export default ProductListContainer;
+export default ProductListContainerAdmin;

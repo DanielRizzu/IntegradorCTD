@@ -15,6 +15,7 @@ const SideBar = () => {
 
   const { pathname } = useLocation();
   const { width } = useWindowSize();
+  
 
   const toggleMenu = () => {
     const overlay = document.querySelector('.overlay');
@@ -71,7 +72,7 @@ const SideBar = () => {
               roleType === 'ADMIN' &&
               pathname !== '/administration' && (
                 <li>
-                  <Link to="/administration">Administraciónnn</Link>
+                  <Link to="/administration">Administración</Link>
                 </li>
               )}
           </ul>

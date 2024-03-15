@@ -5,11 +5,15 @@ import com.grupo6.bookingviajes.model.User;
 import com.grupo6.bookingviajes.model.dto.UserDto;
 import com.grupo6.bookingviajes.response.ApiResponseHandler;
 import com.grupo6.bookingviajes.services.UserService;
+import com.grupo6.bookingviajes.services.impl.MailServiceImpl;
 import com.grupo6.bookingviajes.services.impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +27,9 @@ public class UserController {
 
     @Autowired
     private UserServiceImpl userService;
+
+    @Autowired
+    private MailServiceImpl mailService;
 
     public UserController(UserServiceImpl userService) {
         this.userService = userService;
@@ -45,8 +52,17 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<Object> createUser(@RequestBody UserDto userDto) throws DuplicatedValueException {
-        return ApiResponseHandler.generateResponse("User data save successfully", HttpStatus.OK, userService.saveUser(userDto));
+        User createdUser = userService.saveUser(userDto); // Creamos el usuario
+
+        // Enviamos el correo electrónico
+        mailService.sendMail(
+                userDto.getEmail(), // Destinatario
+                "¡Cuenta creada exitosamente!",
+                userDto.getName() + ", tu cuenta se ha creado exitosamente, empieza a planificar tu viaje junto a nosotros para que disfrutes de unas excelentes vacaciones!"
+        );
+        return ApiResponseHandler.generateResponse("User data save successfully", HttpStatus.OK, createdUser);
     }
+
 
     @PutMapping("/update")
     public ResponseEntity<Object> updateUser(@RequestBody UserDto userDto) {
