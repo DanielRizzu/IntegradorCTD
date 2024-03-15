@@ -24,16 +24,19 @@ export const SuperAdministration = () => {
 
   const MySwal = withReactContent(Swal)
 
-  const handleEdit = (id)=>{
-    console.log("Editar id: "+ id);
+  const handleEdit = (user)=>{
+    console.log("Editar id: "+ user.id);
 
     MySwal.fire({
-      html: <EditUser/>
+      html: <EditUser userData={user}/>,
+      showCancelButton: true,
+      confirmButtonColor: "#5191c1",
+      cancelButtonColor: "#99082c"
     })
   }
 
-  const handleDelete = (id)=>{
-    console.log('Eliminar id: ' + id);
+  const handleDelete = (user)=>{
+    console.log('Eliminar id: ' + user.id);
     MySwal.fire({
       title: "¿Estás seguro de querer eliminar éste usuario?",
       text: "Una vez eliminar será imposible revertir los cambios",
@@ -54,8 +57,10 @@ export const SuperAdministration = () => {
               <UserCard 
                 key={user.id} 
                 id={user.id} 
-                username={user.name +' '+ user.lastName} 
+                userName={user.name}
+                userLastName={user.lastName} 
                 rol={user.role.name}
+                enabled={user.enabled}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
                 />)}

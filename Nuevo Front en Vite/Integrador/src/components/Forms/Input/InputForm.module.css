@@ -16,6 +16,13 @@
   width: fit-content;
 }
 
+.labelEdit{
+  font-size: 18px;
+  font-weight: 500;
+  align-self: flex-start;
+  margin-bottom: 5px;
+}
+
 .inputContainer2 {
   position: relative;
 }
@@ -26,6 +33,28 @@
   border-radius: 5px;
   height: 40px;
   margin-bottom: 5px;
+  width: 100%;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.inputEdit {
+  font-size: 18px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  margin-bottom: 35px;
+  width: 100%;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.selectInput{
+  font-size: 18px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  margin-bottom: 35px;
   width: 100%;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
 }

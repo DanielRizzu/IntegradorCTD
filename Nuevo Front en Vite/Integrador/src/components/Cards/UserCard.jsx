@@ -1,25 +1,28 @@
 import React from 'react'
 import style from './UserCard.module.css'
 
-export const UserCard = ( { id, username, rol, onEdit, onDelete } ) => {
+export const UserCard = ( { id, userName, userLastName, rol, enabled,onEdit, onDelete } ) => {
 
+  const userInfo = {
+    id,
+    userName,
+    userLastName,
+    rol,
+    enabled
+  }
   const handleEdit= ()=>{
-    onEdit(id)
+    onEdit(userInfo)
   }
 
   const handleDelete= ()=>{
-    const userInfo = {
-      id,
-      username,
-      rol,
-    }
-    onDelete(id)
+    
+    onDelete(userInfo)
   }
 
   return (
     <div className={style.cardContainer} id={id}>
 
-        <p className={style.cardUserP}>{username}</p>
+        <p className={style.cardUserP}>{userName + ' ' + userLastName}</p>
         <p className={style.cardUserRol}>{rol}</p>
 
         <div className={style.btnCardUserContainer}>
