@@ -31,7 +31,9 @@ export const SuperAdministration = () => {
       html: <EditUser userData={user}/>,
       showCancelButton: true,
       confirmButtonColor: "#5191c1",
-      cancelButtonColor: "#99082c"
+      confirmButtonText: "Actualizar",
+      cancelButtonColor: "#99082c",
+      cancelButtonText: "Cancelar",
     })
   }
 
