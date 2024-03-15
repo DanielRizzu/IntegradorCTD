@@ -31,7 +31,7 @@ public class ProductController {
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping
+    @GetMapping()
     public ResponseEntity<List<Product>> listarProductos(){
         return ResponseEntity.ok(prodctService.getAllProducts());
     }
@@ -55,17 +55,6 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
-
-    /*@GetMapping("/category/{id}")
-    public ResponseEntity<List<Product>> searchProductByCategory(@PathVariable Integer id) {
-        Optional<Category> category = categoryService.searchCategory(id);
-        if (category.isPresent()) {
-            List<Product> products = prodctService.getProductsByCategory(category.get());
-            return ResponseEntity.ok(products);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }*/
 
     @PostMapping("/create")
     public ResponseEntity<Product> crearProducto(@RequestBody Product product){
