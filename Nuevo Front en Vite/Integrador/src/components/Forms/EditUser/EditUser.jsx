@@ -38,16 +38,17 @@ export const EditUser = ({ userData }) => {
     const handleSubmit= (e)=>{
         e.preventDefault();
         const closeButton = document.querySelector('button.swal2-close');
-        const jwt = JSON.stringify(localStorage.getItem('jwt'))
+        const jwt = JSON.parse(localStorage.getItem('jwt'))
 
         console.log(data);
         console.log('ESTE ES EL TOKEN:')
         console.log(jwt)
+        console.log(typeof(jwt))
 
         fetch("http://localhost:8080/users/update",{
             method: 'PUT',
             headers: {
-                authorization:jwt,
+                Authorization: `Bearer ${jwt}`,
                 'Content-Type': 'application/json',
               },
             body:JSON.stringify(data)
