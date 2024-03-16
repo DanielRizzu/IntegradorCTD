@@ -62,12 +62,21 @@ export const EditUser = ({ userData, refresh }) => {
                     showConfirmButton: false,
                     timer: 2000
                 })
+                setTimeout(()=>{
+                    refresh(data.id)
+                },[300])
+            }
+            if(!response){
+                MySwal.fire({
+                    position: "top-end",
+                    icon: "Error",
+                    title: "Ocurrio un problema al intentar actualizar los datos",
+                    showConfirmButton: false,
+                    timer: 2000
+                })
             }
         })
 
-        setTimeout(()=>{
-            refresh(data.id)
-        },[300])
 
     }
 
