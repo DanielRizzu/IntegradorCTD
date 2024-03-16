@@ -28,7 +28,7 @@ export const SuperAdministration = () => {
     console.log("Editar id: "+ user.id);
 
     MySwal.fire({
-      html: <EditUser userData={user}/>,
+      html: <EditUser userData={user} />,
       showCloseButton: true,
       showConfirmButton: false,
     })

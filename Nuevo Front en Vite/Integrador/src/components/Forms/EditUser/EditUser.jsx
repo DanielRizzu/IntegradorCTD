@@ -4,6 +4,7 @@ import styleInput from '../Input/InputForm.module.css'
 
 export const EditUser = ({ userData }) => {
     const [data, setData] = useState(userData)
+    
 
     const handleChange = (e)=>{
         const {name, value} = e.target;
@@ -15,7 +16,9 @@ export const EditUser = ({ userData }) => {
 
     const handleSubmit= (e)=>{
         e.preventDefault()
+        const closeButton = document.querySelector('.swal2-close')
         console.log(data)
+        closeButton.click()
     }
 
   return (
