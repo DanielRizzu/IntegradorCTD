@@ -1,5 +1,4 @@
 insert into country values
-    (1, "Argentina", "AR"),
     (2, "Bolivia", "BO"),
     (3, "Brasil", "BR"),
     (4, "Chile", "CH"),
@@ -21,7 +20,6 @@ insert into country values
     (20, "Venezuela", "VE");
 
 insert into city values 
-	(1, 'Buenos Aires', 1),
 	(2, 'Catamarca', 1),
 	(3, 'Mar del Plata', 1),
 	(4, 'Córdoba', 1),
@@ -107,14 +105,14 @@ insert into image values
     
     
 insert into user values
-    (1, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
-    (2, 'Gonzalo', 'Pena', 'gonzaloP@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
-    (3, 'Fernando', 'Conil', 'fernando@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 11,2),
-    (4, 'Mathias', 'Silveira', 'mathias@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 7,2),
-    (5, 'Agustin', 'Scanavino', 'agustin@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 8,2),
-    (6, 'Gonzalo', 'Ortiz', 'gonzalo@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 7,2),
-    (7, 'Lilen', 'Romano', 'lilen@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
-    (8, 'Geronimo', 'Monzon', 'geronimo@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2);
+    (2, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
+    (3, 'Gonzalo', 'Pena', 'gonzaloP@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
+    (4, 'Fernando', 'Conil', 'fernando@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 11,2),
+    (5, 'Mathias', 'Silveira', 'mathias@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 7,2),
+    (6, 'Agustin', 'Scanavino', 'agustin@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 8,2),
+    (7, 'Gonzalo', 'Ortiz', 'gonzalo@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 7,2),
+    (8, 'Lilen', 'Romano', 'lilen@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
+    (9, 'Geronimo', 'Monzon', 'geronimo@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2);
     
 insert into reservation values
 (1, '10:30:00', '2022-11-24', '2022-12-08', 'Llevo mi mascota', 6, 4),
