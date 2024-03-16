@@ -10,6 +10,7 @@ export const SuperAdministration = () => {
 
   const [listUsers, setListUsers] = useState([])
   const [actualizacion, setActualizacion] = useState(0)
+  const jwt = JSON.parse(localStorage.getItem('jwt'))
 
   const fetchUsers = async()=>{
     const resp = await fetch('http://localhost:8080/users');
@@ -22,6 +23,8 @@ export const SuperAdministration = () => {
   useEffect(()=>{
     fetchUsers();
   },[])
+  
+  const MySwal = withReactContent(Swal)
 
   const actualizar = (id)=>{
     console.log('Se edito el usuario: ' + id)
@@ -33,7 +36,6 @@ export const SuperAdministration = () => {
     console.log(actualizacion)
   }
 
-  const MySwal = withReactContent(Swal)
 
   const handleEdit = (user)=>{
     console.log("Editar id: "+ user.id);
@@ -54,11 +56,48 @@ export const SuperAdministration = () => {
       showCancelButton: true,
       confirmButtonColor: "#5191c1",
       cancelButtonColor: "#99082c",
-      confirmButtonText: "Si, eliminalo!"
+      confirmButtonText: "Si, eliminalo!",
+    }).then(result =>{
+      if(result.isConfirmed){
+        fetchDelete(user.id)
+      }
+       
+
     })
   }
 
-
+  const fetchDelete = (id)=>{
+    fetch(`http://localhost:8080/users/delete/${id}`,{
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${jwt}`,
+                'Content-Type': 'application/json',
+              }
+        }).then(res =>{
+          if(res.ok){
+              MySwal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Usuario eliminado",
+                  showConfirmButton: false,
+                  timer: 2000
+              })
+              setTimeout(()=>{
+                  actualizar(id)
+              },[300])
+              console.log(res)
+          }else{
+              MySwal.fire({
+                  position: "top-end",
+                  icon: "error",
+                  title: "Ocurrio un problema al intentar eliminar el usuario",
+                  showConfirmButton: false,
+                  timer: 2000
+              })
+              consol.log(res)
+          }
+      })
+  }
   return (
     <>
       <SecondaryHeader />
