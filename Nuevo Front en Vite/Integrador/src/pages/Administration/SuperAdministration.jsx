@@ -9,6 +9,7 @@ import { EditUser } from '../../components/Forms/EditUser/EditUser'
 export const SuperAdministration = () => {
 
   const [listUsers, setListUsers] = useState([])
+  const [actualizacion, setActualizacion] = useState(0)
 
   const fetchUsers = async()=>{
     const resp = await fetch('http://localhost:8080/users');
@@ -22,13 +23,23 @@ export const SuperAdministration = () => {
     fetchUsers();
   },[])
 
+  const actualizar = (id)=>{
+    console.log('Se edito el usuario: ' + id)
+    if(actualizacion === id){
+      setActualizacion(0)
+    }else{
+      setActualizacion(id)
+    }
+    console.log(actualizacion)
+  }
+
   const MySwal = withReactContent(Swal)
 
   const handleEdit = (user)=>{
     console.log("Editar id: "+ user.id);
-    
+
     MySwal.fire({
-      html: <EditUser userData={user} />,
+      html: <EditUser userData={user} refresh={actualizar}/>,
       showCloseButton: true,
       showConfirmButton: false,
     })

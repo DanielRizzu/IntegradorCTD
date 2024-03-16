@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import style from '../Form.module.css'
 import styleInput from '../Input/InputForm.module.css'
 import baseUrl from '../../../utils/baseUrl.json'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
-export const EditUser = ({ userData }) => {
+export const EditUser = ({ userData, refresh }) => {
     const [data, setData] = useState(userData)
-    console.log(data)
+    const MySwal = withReactContent(Swal)
     
 
     const handleChange = (e)=>{
@@ -13,7 +15,6 @@ export const EditUser = ({ userData }) => {
         console.log(name+':', value);
         let modified = {...data, [name]: value};
         setData(modified)
-        console.log(data)
     }
 
     const handleRole = (e)=>{
@@ -37,7 +38,6 @@ export const EditUser = ({ userData }) => {
 
     const handleSubmit= (e)=>{
         e.preventDefault();
-        const closeButton = document.querySelector('button.swal2-close');
         const jwt = JSON.parse(localStorage.getItem('jwt'))
 
         console.log(data);
@@ -53,9 +53,22 @@ export const EditUser = ({ userData }) => {
               },
             body:JSON.stringify(data)
 
-        }).then(response =>console.log(response))
+        }).then(response =>{
+            if(response.ok){
+                MySwal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Datos actualizados correctamente",
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+            }
+        })
 
-        closeButton.click();
+        setTimeout(()=>{
+            refresh(data.id)
+        },[300])
+
     }
 
   return (
