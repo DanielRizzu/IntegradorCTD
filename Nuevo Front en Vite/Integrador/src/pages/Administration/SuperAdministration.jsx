@@ -41,7 +41,7 @@ export const SuperAdministration = () => {
     console.log("Editar id: "+ user.id);
 
     MySwal.fire({
-      html: <EditUser userData={user} refresh={actualizar}/>,
+      html: <EditUser userData={user} refresh={fetchUsers}/>,
       showCloseButton: true,
       showConfirmButton: false,
     })
@@ -83,7 +83,7 @@ export const SuperAdministration = () => {
                   timer: 2000
               })
               setTimeout(()=>{
-                  actualizar(id)
+                  fetchUsers()
               },[300])
               console.log(res)
           }else{
