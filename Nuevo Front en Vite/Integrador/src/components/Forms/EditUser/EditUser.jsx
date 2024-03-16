@@ -48,7 +48,7 @@ export const EditUser = ({ userData, refresh }) => {
         fetch("http://localhost:8080/users/update",{
             method: 'PUT',
             headers: {
-                Authorization: ``,
+                Authorization: `Bearer ${jwt}`,
                 'Content-Type': 'application/json',
               },
             body:JSON.stringify(data)
