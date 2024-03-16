@@ -48,7 +48,7 @@ export const EditUser = ({ userData, refresh }) => {
         fetch("http://localhost:8080/users/update",{
             method: 'PUT',
             headers: {
-                Authorization: `Bearer ${jwt}`,
+                Authorization: ``,
                 'Content-Type': 'application/json',
               },
             body:JSON.stringify(data)
@@ -65,11 +65,10 @@ export const EditUser = ({ userData, refresh }) => {
                 setTimeout(()=>{
                     refresh(data.id)
                 },[300])
-            }
-            if(!response){
+            }else{
                 MySwal.fire({
                     position: "top-end",
-                    icon: "Error",
+                    icon: "error",
                     title: "Ocurrio un problema al intentar actualizar los datos",
                     showConfirmButton: false,
                     timer: 2000
