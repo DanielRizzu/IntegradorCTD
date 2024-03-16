@@ -53,8 +53,8 @@ public class SwaggerConfig implements WebMvcConfigurer {
 
     private ApiInfo apiInfo(){
         return new ApiInfo("Grupo 6",
-                "",
-                "V.0.0.1",
+                "Documentación necesaria para trabajar con los datos de la aplicación",
+                "V.1.0.0",
                 "Terms of service",
                 new Contact("", "",""),
                 "Licencia",
