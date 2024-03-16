@@ -29,11 +29,8 @@ export const SuperAdministration = () => {
 
     MySwal.fire({
       html: <EditUser userData={user}/>,
-      showCancelButton: true,
-      confirmButtonColor: "#5191c1",
-      confirmButtonText: "Actualizar",
-      cancelButtonColor: "#99082c",
-      cancelButtonText: "Cancelar",
+      showCloseButton: true,
+      showConfirmButton: false,
     })
   }
 
@@ -41,7 +38,7 @@ export const SuperAdministration = () => {
     console.log('Eliminar id: ' + user.id);
     MySwal.fire({
       title: "¿Estás seguro de querer eliminar éste usuario?",
-      text: "Una vez eliminar será imposible revertir los cambios",
+      text: "¡Una vez eliminado será imposible revertir los cambios!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#5191c1",

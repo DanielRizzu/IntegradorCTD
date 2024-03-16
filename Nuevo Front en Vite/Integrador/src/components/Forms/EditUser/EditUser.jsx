@@ -3,29 +3,41 @@ import style from '../Form.module.css'
 import styleInput from '../Input/InputForm.module.css'
 
 export const EditUser = ({ userData }) => {
-    console.log(userData)
+    const [data, setData] = useState(userData)
 
-    const [data, setData] = useState({})
-    useEffect(()=>{
-        setData(userData)
-    },[])
+    const handleChange = (e)=>{
+        const {name, value} = e.target;
+        console.log(name+':', value);
+        const modified = {...data, [name]: value};
+        setData(modified)
+        console.log(data)
+    }
+
+    const handleSubmit= (e)=>{
+        e.preventDefault()
+        console.log(data)
+    }
 
   return (
-    <form className={style.form}>
-        <label className={styleInput.labelEdit} htmlFor="name">Nombre:</label>
-        <input className={styleInput.inputEdit}type="text" name='name' value={data.userName}/>
-        <label className={styleInput.labelEdit} htmlFor="lasName">Apellido:</label>
-        <input className={styleInput.inputEdit}type="text" name='lastName'value={data.userLastName}/>
-        <label className={styleInput.labelEdit} htmlFor="enabled">Rol:</label>
-        <select className={styleInput.selectInput} name="enabled" >
+    <form className={style.form} onSubmit={handleSubmit}>
+        <label className={styleInput.labelEdit} htmlFor="userName">Nombre:</label>
+        <input className={styleInput.inputEdit}type="text" name='userName' value={data.userName} onChange={handleChange}/>
+
+        <label className={styleInput.labelEdit} htmlFor="userLastName">Apellido:</label>
+        <input className={styleInput.inputEdit}type="text" name='userLastName'value={data.userLastName} onChange={handleChange}/>
+
+        <label className={styleInput.labelEdit} htmlFor="rol">Rol:</label>
+        <select className={styleInput.selectInput} name="rol" onChange={handleChange}>
             <option value="USER" selected={data.rol === 'USER'}>USER</option>
             <option value="ADMIN" selected={data.rol === 'ADMIN'}>ADMIN</option>
         </select>
+
         <label className={styleInput.labelEdit} htmlFor="enabled">Estado:</label>
-        <select className={styleInput.selectInput} name="enabled" >
+        <select className={styleInput.selectInput} name="enabled" onChange={handleChange}>
             <option value="true" selected={data.enabled === true} >Habilitado</option>
             <option value="false" selected={data.enabled === false} >Deshabilitado</option>
         </select>
+        <button className='btn btn2'>Modificar usuario</button>
     </form>
   )
 }
