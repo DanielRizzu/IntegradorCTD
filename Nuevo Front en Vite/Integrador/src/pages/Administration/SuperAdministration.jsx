@@ -26,7 +26,7 @@ export const SuperAdministration = () => {
 
   const handleEdit = (user)=>{
     console.log("Editar id: "+ user.id);
-
+    
     MySwal.fire({
       html: <EditUser userData={user} />,
       showCloseButton: true,
@@ -56,10 +56,7 @@ export const SuperAdministration = () => {
               <UserCard 
                 key={user.id} 
                 id={user.id} 
-                userName={user.name}
-                userLastName={user.lastName} 
-                rol={user.role.name}
-                enabled={user.enabled}
+                user={user}
                 onEdit={handleEdit}
                 onDelete={handleDelete}
                 />)}

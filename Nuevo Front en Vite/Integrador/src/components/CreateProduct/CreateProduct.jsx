@@ -32,24 +32,7 @@ const CreateProduct = () => {
   const [cancellationPolicy, setCancellationPolicy] = useState(null);
   const [msgErrorImages, setMsgErrorImages] = useState(false);
 
-  //console.log(arrayImages);
-
-  /* Nuevo producto creado */
-  // const [newProductId, setNewProductId] = useState(null);
-
   const navigate = useNavigate();
-
-  //console.log('newProductId', newProductId);
-  //console.log('propertyName', propertyName);
-  //console.log('city', city);
-  //console.log('cityId', city?.id);
-  //console.log('categoryId', category?.id);
-  //console.log('category', category);
-  //console.log('description', description);
-
-  //console.log(sitePolicy);
-  //console.log(healthAndSafetyPolicy);
-  //console.log(cancellationPolicy);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
