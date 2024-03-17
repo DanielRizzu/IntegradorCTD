@@ -3,7 +3,7 @@ import ProductAdmin from './ProductAdmin';
 import Spinner from '../../Spinner/Spinner';
 import style from '../../ProductList/ProductList.module.css';
 
-const ProductListAdmin = ({ products, isLoading }) => {
+const ProductListAdmin = ({ products, isLoading,  }) => {
   //console.log(products);
   return (
     <div className={style.container}>

@@ -7,6 +7,7 @@ const ProductListContainerAdmin = ({
   searchCity,
   searchRangeDates,
   filterCategories,
+  refetchProducts
 }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -55,7 +56,7 @@ const ProductListContainerAdmin = ({
 
   return (
     <div className={style.container}>
-      <ProductListAdmin products={products} isLoading={isLoading} />
+      <ProductListAdmin products={products} isLoading={isLoading}  />
       
     </div>
   );

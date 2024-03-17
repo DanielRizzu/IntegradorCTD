@@ -49,6 +49,31 @@ const ProductAdmin = ({
     return text;
   };
 
+  
+
+  const eliminarPaquete = async () => {
+    const token = JSON.parse(localStorage.getItem('jwt'));
+  console.log('Token:', token); 
+    try {
+      const response = await fetch(`http://localhost:8080/products/delete/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        // Aquí puedes manejar la eliminación exitosa
+        console.log('Paquete eliminado con éxito');
+      } else {
+        // Aquí puedes manejar el caso en que la eliminación falla
+        console.error('Error al eliminar el paquete');
+      }
+    } catch (error) {
+      console.error('Error de red', error);
+    }
+  };
+
   return (
     <div className={style.cardContainer}>
       <div className={style.productImageContainer}>
@@ -64,7 +89,7 @@ const ProductAdmin = ({
         
 
         <p className={style.productDescription}>{description}</p>
-        <RedButton variant="contained" >
+        <RedButton variant="contained" onClick={eliminarPaquete} >
       Eliminar Paquete
     </RedButton>
       </div>

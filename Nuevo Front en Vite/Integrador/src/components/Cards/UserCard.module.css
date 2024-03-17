@@ -34,6 +34,7 @@
     background-color: rgba(0, 0,0,0);
     border: none;
     width: 40px;
+    cursor: pointer;
 }
 
 .imgBtnCardUser{

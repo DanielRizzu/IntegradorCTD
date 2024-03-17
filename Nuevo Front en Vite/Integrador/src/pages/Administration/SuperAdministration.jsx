@@ -10,6 +10,7 @@ export const SuperAdministration = () => {
 
   const [listUsers, setListUsers] = useState([])
   const [actualizacion, setActualizacion] = useState(0)
+  const [searchTerm, setSearchTerm] = useState('');
   const jwt = JSON.parse(localStorage.getItem('jwt'))
 
   const fetchUsers = async()=>{
@@ -66,6 +67,15 @@ export const SuperAdministration = () => {
     })
   }
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredUsers = listUsers.filter((user) =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.lastName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   const fetchDelete = (id)=>{
     fetch(`http://localhost:8080/users/delete/${id}`,{
             method: 'DELETE',
@@ -94,7 +104,7 @@ export const SuperAdministration = () => {
                   showConfirmButton: false,
                   timer: 2000
               })
-              consol.log(res)
+              console.log(res)
           }
       })
   }
@@ -102,18 +112,26 @@ export const SuperAdministration = () => {
     <>
       <SecondaryHeader />
       <div className={style.userListContainer}>
-        {listUsers.map(user => 
-              <UserCard 
-                key={user.id} 
-                id={user.id} 
-                user={user}
-                onEdit={handleEdit}
-                onDelete={handleDelete}
-                />)}
-                
+      <div className={style.searchContainer}>
+          <input
+            type="text"
+            className={style.searchInput}
+            placeholder="Buscar usuario..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
+        {filteredUsers.map((user) => (
+          <UserCard
+            key={user.id}
+            id={user.id}
+            user={user}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
+        ))}
       </div>
     </>
-
-  )
-}
+  );
+};
 
