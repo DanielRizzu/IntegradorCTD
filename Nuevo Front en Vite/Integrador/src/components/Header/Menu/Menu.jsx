@@ -61,7 +61,7 @@ const Menu = () => {
                 }}
                 aria-label="Cerrar sesión"
               >
-                <FontAwesomeIcon icon={faXmark} />
+                <FontAwesomeIcon icon={faXmark} style={{position: "absolute", top: 10, right: 10, height: 25}}/>
               </button>
             </>
           )}
