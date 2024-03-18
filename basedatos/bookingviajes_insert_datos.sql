@@ -1,4 +1,5 @@
 insert into country values
+	(1, "Argentina", "AR"),
     (2, "Bolivia", "BO"),
     (3, "Brasil", "BR"),
     (4, "Chile", "CH"),
@@ -20,6 +21,7 @@ insert into country values
     (20, "Venezuela", "VE");
 
 insert into city values 
+	(1, 'Buenos Aires', 1),
 	(2, 'Catamarca', 1),
 	(3, 'Mar del Plata', 1),
 	(4, 'Córdoba', 1),
@@ -31,6 +33,10 @@ insert into city values
 	(10, 'Lima', 17),
 	(11, 'Magangué', 5);
 
+insert into role values
+	(1, "USER"),
+	(2, "ADMIN");
+    
 insert into category values
 	( 1, 'All Inclusive', 'Todo Incluido', 'https://sevenstaraward.com/uploads/2016/02/news-1.jpg'),
 	( 2, 'Escapadas', 'Escapadas increibles', 'https://s1.abcstatics.com/media/bienestar/2020/01/29/trekking-kte--1248x698@abc.jpg'),
@@ -105,6 +111,7 @@ insert into image values
     
     
 insert into user values
+    (1, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
     (2, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
     (3, 'Gonzalo', 'Pena', 'gonzaloP@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
     (4, 'Fernando', 'Conil', 'fernando@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 11,2),
