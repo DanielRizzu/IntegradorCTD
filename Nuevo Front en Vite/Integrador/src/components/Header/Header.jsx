@@ -10,9 +10,11 @@ const Header = () => {
       <nav className={style.nav}>
         <div className={style.containerLeft}>
           <Link to="/" aria-label="Página de inicio de Equipo ">
-            <img src={logo} alt="logo" />
+            <div className={style.logoContainer}>
+              <img src={logo} alt="logo" />
+              <span className={style.motto}>VIAJANDO</span>
+            </div>
           </Link>
-          <span className={style.motto}>VIAJANDO</span>
         </div>
         <Menu />
       </nav>

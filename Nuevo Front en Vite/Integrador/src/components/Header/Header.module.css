@@ -20,6 +20,15 @@ header {
   height: 56px;
 }
 
+.logoContainer {
+  display: flex; /* Utiliza flexbox para alinear elementos en la misma fila */
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.logoContainer img {
+  margin-right: 0.5rem; /* Ajusta el margen derecho si es necesario */
+}
+
 .motto {
   display: none;
   color: white;
