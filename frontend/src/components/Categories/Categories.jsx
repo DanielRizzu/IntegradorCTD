@@ -7,8 +7,6 @@ const Categories = ({ handleFilterCategories }) => {
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  //console.log(categories);
-
   useEffect(() => {
     setIsLoading(true);
     fetch(`${baseUrl.url}/categories`)
