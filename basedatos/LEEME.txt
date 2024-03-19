@@ -1,8 +1,0 @@
-SEGUIR EN ORDEN LO SIGUIENTES PASOS PARA QUE LA BASE DE DATOS FUNCIONE:
-
-1)Crear una nueva conexion en mySQL y crear las tablas usando las queries del archivo db_bookingviajes.sql
-
-2)Abrir IntelliJ y ejecutar la aplicacion (creará usuario "superuser" e insertará algunos datos en la BDD)
-
-3)Ejecutar las queries del archivo bookingviajes_insert_datos.sql 
-	(agregará en la BDD todos los datos faltantes necesariospara el correcto funcionamiento de la aplicacion)

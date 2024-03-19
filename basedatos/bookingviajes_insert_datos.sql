@@ -38,7 +38,7 @@ insert into role values
 	(2, "ADMIN");
     
 insert into category values
-	( 1, 'All Inclusive', 'Todo Incluido', 'https://sevenstaraward.com/uploads/2016/02/news-1.jpg'),
+	( 1, 'All Inclusive', 'Todo Incluido', 'https://images.unsplash.com/photo-1537823286324-7d070255022e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
 	( 2, 'Escapadas', 'Escapadas increibles', 'https://s1.abcstatics.com/media/bienestar/2020/01/29/trekking-kte--1248x698@abc.jpg'),
 	( 3, 'Cruceros', 'Navega por lugares', 'https://images.ecestaticos.com/jZjgm6io1r7Zir0LDHGdvKhLrp4=/4x110:2126x1301/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F3cf%2F5ed%2F1b1%2F3cf5ed1b1140b545d252ab90a510122e.jpg'),
 	( 4, 'Salidas Grupales', 'Mucho para hacer', 'https://milhousehostel.com/wp-content/uploads/2021/03/4476211-1393373_314_0_3439_2750_1000_800-605x465.jpg'),
@@ -112,14 +112,14 @@ insert into image values
     
 insert into user values
     (1, 'Super', 'Rizzu', 'daniel1213@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
-    (2, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$9JmFq602DTR.ohinaKQtOe9Txv9zQOYqkdvHpgLg.OuNRBlqd2AX.', 1, 1, 2),
-    (3, 'Gonzalo', 'Pena', 'gonzaloP@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
-    (4, 'Fernando', 'Conil', 'fernando@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 11,2),
-    (5, 'Mathias', 'Silveira', 'mathias@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 7,2),
-    (6, 'Agustin', 'Scanavino', 'agustin@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 8,2),
-    (7, 'Gonzalo', 'Ortiz', 'gonzalo@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 7,2),
-    (8, 'Lilen', 'Romano', 'lilen@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
-    (9, 'Geronimo', 'Monzon', 'geronimo@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2);
+    (2, 'Daniel', 'Rizzuti', 'danielr@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 1, 2),
+    (3, 'Gonzalo', 'Pena', 'gonzaloP@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 1, 2),
+    (4, 'Fernando', 'Conil', 'fernandoC@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 11,2),
+    (5, 'Mathias', 'Silveira', 'mathiasS@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 7,2),
+    (6, 'Agustin', 'Scanavino', 'agustinS@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 8,2),
+    (7, 'Gonzalo', 'Ortiz', 'gonzaloO@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 7,2),
+    (8, 'Lilen', 'Romano', 'lilenR@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 1, 2),
+    (9, 'Geronimo', 'Monzon', 'geronimoM@viajes.com', '$2a$10$gAPUAMv2mYDeRB1660VKfuB04dZmFXk6eZebD7GA1EDhk/iQpcoeu', 1, 1, 2);
     
 insert into reservation values
 (1, '10:30:00', '2022-11-24', '2022-12-08', 'Llevo mi mascota', 6, 4),
