@@ -68,7 +68,7 @@ const BookingDetail = ({ checkInTime }) => {
         id: userInfo.id,
       },
     };
-    //console.log(newBooking);
+    
 
     if (
       rangeDate[0] !== null &&
