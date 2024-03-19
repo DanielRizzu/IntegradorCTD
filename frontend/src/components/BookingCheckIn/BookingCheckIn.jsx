@@ -20,7 +20,6 @@ const BookingCheckIn = ({ getCheckInTime }) => {
     return newDateObj;
   };
 
-  //   const formatTime = new Date(startTime).toTimeString().slice(0, 5);
   const rangeInitialTime = arrivalTime.slice(0, 5);
 
   const rangeFinishTime =
