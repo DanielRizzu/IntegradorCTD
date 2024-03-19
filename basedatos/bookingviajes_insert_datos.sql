@@ -111,7 +111,7 @@ insert into image values
     
     
 insert into user values
-    (1, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
+    (1, 'Super', 'Rizzu', 'daniel1213@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
     (2, 'Daniel', 'Rizzuti', 'daniel@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
     (3, 'Gonzalo', 'Pena', 'gonzaloP@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 1, 2),
     (4, 'Fernando', 'Conil', 'fernando@viajes.com', '$2a$10$izo/rgH5EsHpxc43gOfXWeJThcD6mGnt88jm/LijDRdJGMay4x4Ba', 1, 11,2),
