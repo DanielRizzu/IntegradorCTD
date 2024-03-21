@@ -45,7 +45,8 @@ const BookingDetail = ({ checkInTime }) => {
     if (
       rangeDate[0] !== null &&
       rangeDate[1] !== null &&
-      checkInTime !== null
+      // checkInTime !== null   // de momento se anula
+      checkInTime == null
     ) {
       setIsDisabled(false);
     } else {
@@ -73,6 +74,7 @@ const BookingDetail = ({ checkInTime }) => {
     if (
       rangeDate[0] !== null &&
       rangeDate[1] !== null &&
+      // checkInTime !== null  // de momento se anula
       checkInTime !== null
     ) {
       const jwt = JSON.parse(localStorage.getItem('jwt'));

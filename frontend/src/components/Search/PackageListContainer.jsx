@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import style from './ProductListContainer.module.css';
-import baseUrl from '../../utils/baseUrl.json';
-import ProductList from '../ProductList/ProductList'
+import style from '../../ProductListContainer/ProductListContainer.module.css';
+import baseUrl from '../../../utils/baseUrl.json';
+import PackageList from '../Search/PackageList';
 
-const ProductListContainer = ({
+const PackageListContainer = ({
   searchCity,
   searchRangeDates,
   filterCategories,
-  searchTerm
+  refetchProducts
 }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -25,18 +25,15 @@ const ProductListContainer = ({
   /* Faltaria arreglar el tema de los filtros para que se puedan reestablecer. También arreglar que si se selecciona una fecha o ciudad ya no funciona el filtro de categoria (no hay desde el back un filtro que acepte las 3 cosas) */
 
   const url =
-  filterCategories && !(searchCity || (startDate && endDate ))
-    ? `${baseUrl.url}/products/category/${filterCategories}`
-    : searchCity && startDate && endDate
-    ? `${baseUrl.url}/products/cityAndDates/${searchCity.id}/${startDate}/${endDate}`
-    : searchCity && !(startDate && endDate)
-    ? `${baseUrl.url}/products/city/${searchCity.id}`
-    : startDate && endDate
-    ? `${baseUrl.url}/products/dates/${startDate}/${endDate}`
-    : `${baseUrl.url}/products`;
-
-    
-      
+    filterCategories && !(searchCity || (startDate && endDate))
+      ? `${baseUrl.url}/products/category/${filterCategories}`
+      : searchCity && startDate && endDate
+      ? `${baseUrl.url}/products/cityAndDates/${searchCity.id}/${startDate}/${endDate}`
+      : searchCity && !(startDate && endDate)
+      ? `${baseUrl.url}/products/city/${searchCity.id}`
+      : startDate && endDate
+      ? `${baseUrl.url}/products/dates/${startDate}/${endDate}`
+      : `${baseUrl.url}/products`;
 
   useEffect(() => {
     setIsLoading(true);
@@ -59,10 +56,10 @@ const ProductListContainer = ({
 
   return (
     <div className={style.container}>
-      <ProductList products={products} isLoading={isLoading} />
+      <PackageList products={products} isLoading={isLoading}  />
       
     </div>
   );
 };
 
-export default ProductListContainer;
+export default PackageListContainer;

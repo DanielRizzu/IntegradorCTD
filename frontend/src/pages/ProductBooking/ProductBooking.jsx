@@ -73,10 +73,10 @@ const ProductBooking = () => {
             </div>
           </section>
           {/* Tu horario de llegada */}
-          <section>
+          {/* <section>
             <h2>horario de llegada</h2>
             <BookingCheckIn getCheckInTime={getCheckInTime} />
-          </section>
+          </section> */}
         </div>
 
         {/* Detalle de la reserva */}
