@@ -20,40 +20,10 @@ const Home = () => {
     setSearchRangeDates(dateRange);
   };
 
-  //console.log('id category', categoriesFilter);
-
   const handleFilterCategories = (category) => {
     setCategoriesFilter(category);
   };
 
-  // para buscar paquetes
-
-  const [listPackages, setListPackage] = useState([])
-  // const [actualizacion, setActualizacion] = useState(0)
-  const [searchTerm, setSearchTerm] = useState('');
-  // const jwt = JSON.parse(localStorage.getItem('jwt'))
-
-  const fetchPackages= async()=>{
-    const resp = await fetch('http://localhost:8080/products');
-    const data = await resp.json();
-    console.log(data);
-    setListPackage(data);
-  }
-
-  useEffect(()=>{
-    fetchPackages();
-  },[])
-
-  const handleSearchPackages = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const filteredPackages = listPackages.filter((products) =>
-    products.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    products.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  // fin buscar paquetes
 
   return (
     <div className={style.homeContainer}>
@@ -61,7 +31,7 @@ const Home = () => {
       <Search handleSearch={handleSearch} />
       <Categories handleFilterCategories={handleFilterCategories} />
       <ProductListContainer
-        searchTerm={searchTerm}
+
         searchCity={searchCity}
         searchRangeDates={searchRangeDates}
         filterCategories={categoriesFilter}

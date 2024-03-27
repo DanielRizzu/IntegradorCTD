@@ -7,7 +7,6 @@ const ProductListContainer = ({
   searchCity,
   searchRangeDates,
   filterCategories,
-  searchTerm
 }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
