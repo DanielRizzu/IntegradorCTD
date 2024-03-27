@@ -7,6 +7,7 @@ const ProductListContainer = ({
   searchCity,
   searchRangeDates,
   filterCategories,
+  searchTerm
 }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -56,9 +57,16 @@ const ProductListContainer = ({
       });
   }, [url]);
 
+
+
+  const filteredPackages = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    product.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className={style.container}>
-      <ProductList products={products} isLoading={isLoading} />
+      <ProductList products={searchTerm == "" ? products : filteredPackages} isLoading={isLoading} />
       
     </div>
   );

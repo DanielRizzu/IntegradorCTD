@@ -12,7 +12,7 @@ const Home = () => {
   const [searchCity, setSearchCity] = useState(null);
   const [searchRangeDates, setSearchRangeDates] = useState([null, null]);
   const [categoriesFilter, setCategoriesFilter] = useState(null);
-  // const [searchPackage, setPackage] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
 
   const handleSearch = (citySearch, dateRange) => {
@@ -24,14 +24,18 @@ const Home = () => {
     setCategoriesFilter(category);
   };
 
+  const handleCardFilter = (e) => {
+    setSearchTerm(e)
+  }
+
 
   return (
     <div className={style.homeContainer}>
       <Slider />
-      <Search handleSearch={handleSearch} />
+      <Search handleCardFilter={handleCardFilter} handleSearch={handleSearch} />
       <Categories handleFilterCategories={handleFilterCategories} />
       <ProductListContainer
-
+        searchTerm={searchTerm}
         searchCity={searchCity}
         searchRangeDates={searchRangeDates}
         filterCategories={categoriesFilter}
