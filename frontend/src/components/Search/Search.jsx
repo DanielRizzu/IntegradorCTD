@@ -21,10 +21,11 @@ const Search = ({ handleSearch }) => {
 
   return (
     <div className={style.searchContainer}>
-      <h1 className={style.searchTitle}>
-      </h1>
       <form className={style.searchForm} onSubmit={handleSubmit}>
-        {/* <input className={style.searchPackageInput} type="prueba" placeholder="Buscar..."/> */}
+      <input className={style.searchPackageInput} 
+          type="search" 
+          placeholder="Buscar..."
+          />
         <SelectCity getCity={getCity} />
         <Calendar />
         <button className={`btn btn2 ${style.searchBtn}`}>Buscar</button>
