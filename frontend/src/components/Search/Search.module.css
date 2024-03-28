@@ -62,6 +62,7 @@
 }
 
 .searchPackageInput {
+  background-color: white;
   padding: 0 18px;
   border: none;
   border-radius: 5px;
