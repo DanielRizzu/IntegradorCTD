@@ -22,28 +22,20 @@ const Home = () => {
     setCategoriesFilter(category);
   };
 
-<<<<<<< HEAD
   const handleCardFilter = (e) => {
     setSearchTerm(e)
   }
 
-
-=======
->>>>>>> 2608ba3acdaa5348cd297ccdf78881b1a586ef9b
   return (
     <div className={style.homeContainer}>
       <Slider />
       <Search handleCardFilter={handleCardFilter} handleSearch={handleSearch} />
       <Categories handleFilterCategories={handleFilterCategories} />
       <ProductListContainer
-<<<<<<< HEAD
-        searchTerm={searchTerm}
-=======
->>>>>>> 2608ba3acdaa5348cd297ccdf78881b1a586ef9b
         searchCity={searchCity}
         searchRangeDates={searchRangeDates}
         filterCategories={categoriesFilter}
-        searchTerm={searchTerm} // Pasamos el término de búsqueda
+        searchTerm={searchTerm}
       />
     </div>
   );
