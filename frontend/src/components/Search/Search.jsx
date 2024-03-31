@@ -3,20 +3,32 @@ import style from './Search.module.css';
 import Calendar from './Calendar/Calendar';
 import SelectCity from './SelectCity/SelectCity';
 import { dateRangeContext } from '../../context/DateRangeContext';
-import { UserSearch } from './UserSearch';
 import { Input } from '@mui/material';
 
 const Search = ({ handleSearch, handleCardFilter }) => {
   const [city, setCity] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
   const { rangeDate } = useContext(dateRangeContext);
 
   const getCity = (valueCity) => {
     setCity(valueCity);
+    // Realizar la búsqueda solo si el término de búsqueda está presente
+    if (searchTerm) {
+      handleSearch(valueCity, rangeDate, searchTerm);
+    }
+  };
+
+  const handleTermChange = (e) => {
+    const term = e.target.value;
+    setSearchTerm(term);
+    // Realizar la búsqueda cuando el término de búsqueda cambia
+    handleSearch(city, rangeDate, term);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearch(city, rangeDate);
+    // Realizar la búsqueda cuando se envía el formulario
+    handleSearch(city, rangeDate, searchTerm);
   };
 
   const handleChange = (e) => {
@@ -27,15 +39,21 @@ const Search = ({ handleSearch, handleCardFilter }) => {
   return (
     <div className={style.searchContainer}>
       <form className={style.searchForm} onSubmit={handleSubmit}>
-      <input className={style.searchPackageInput} 
-          type="search" 
+        <Input
+          className={style.searchPackageInput}
+          type="search"
           placeholder="Buscar..."
+<<<<<<< HEAD
           onChange={handleChange}
           />
+=======
+          value={searchTerm}
+          onChange={handleTermChange}
+        />
+>>>>>>> 2608ba3acdaa5348cd297ccdf78881b1a586ef9b
         <SelectCity getCity={getCity} />
         <Calendar />
-        <button className={`btn btn2 ${style.searchBtn}`}>Buscar</button>
-        
+        <button type="submit" className={`btn btn2 ${style.searchBtn}`}>Buscar</button>
       </form>
     </div>
   );
