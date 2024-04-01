@@ -43,14 +43,9 @@ const Search = ({ handleSearch, handleCardFilter }) => {
           className={style.searchPackageInput}
           type="search"
           placeholder="Buscar..."
-<<<<<<< HEAD
           onChange={handleChange}
           />
-=======
-          value={searchTerm}
-          onChange={handleTermChange}
-        />
->>>>>>> 2608ba3acdaa5348cd297ccdf78881b1a586ef9b
+
         <SelectCity getCity={getCity} />
         <Calendar />
         <button type="submit" className={`btn btn2 ${style.searchBtn}`}>Buscar</button>
