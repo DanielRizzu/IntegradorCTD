@@ -7,7 +7,7 @@ const ProductListContainer = ({
   searchCity,
   searchRangeDates,
   filterCategories,
-  searchTerm // Recibimos el término de búsqueda del usuario
+  searchTerm
 }) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -51,9 +51,16 @@ const ProductListContainer = ({
       });
   }, [url, searchTerm]); // Actualizamos la dependencia para incluir el término de búsqueda
 
+
+
+  const filteredPackages = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    product.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className={style.container}>
-      <ProductList products={products} isLoading={isLoading} />
+      <ProductList products={searchTerm == "" ? products : filteredPackages} isLoading={isLoading} />
     </div>
   );
 };

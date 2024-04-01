@@ -22,16 +22,20 @@ const Home = () => {
     setCategoriesFilter(category);
   };
 
+  const handleCardFilter = (e) => {
+    setSearchTerm(e)
+  }
+
   return (
     <div className={style.homeContainer}>
       <Slider />
-      <Search handleSearch={handleSearch} />
+      <Search handleCardFilter={handleCardFilter} handleSearch={handleSearch} />
       <Categories handleFilterCategories={handleFilterCategories} />
       <ProductListContainer
         searchCity={searchCity}
         searchRangeDates={searchRangeDates}
         filterCategories={categoriesFilter}
-        searchTerm={searchTerm} // Pasamos el término de búsqueda
+        searchTerm={searchTerm}
       />
     </div>
   );

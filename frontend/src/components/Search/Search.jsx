@@ -5,7 +5,7 @@ import SelectCity from './SelectCity/SelectCity';
 import { dateRangeContext } from '../../context/DateRangeContext';
 import { Input } from '@mui/material';
 
-const Search = ({ handleSearch }) => {
+const Search = ({ handleSearch, handleCardFilter }) => {
   const [city, setCity] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const { rangeDate } = useContext(dateRangeContext);
@@ -31,6 +31,11 @@ const Search = ({ handleSearch }) => {
     handleSearch(city, rangeDate, searchTerm);
   };
 
+  const handleChange = (e) => {
+    const input = e.target.value;
+    handleCardFilter(input)
+  }
+
   return (
     <div className={style.searchContainer}>
       <form className={style.searchForm} onSubmit={handleSubmit}>
@@ -38,9 +43,9 @@ const Search = ({ handleSearch }) => {
           className={style.searchPackageInput}
           type="search"
           placeholder="Buscar..."
-          value={searchTerm}
-          onChange={handleTermChange}
-        />
+          onChange={handleChange}
+          />
+
         <SelectCity getCity={getCity} />
         <Calendar />
         <button type="submit" className={`btn btn2 ${style.searchBtn}`}>Buscar</button>
