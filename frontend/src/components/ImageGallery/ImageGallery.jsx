@@ -1,50 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import ReactImageGallery from 'react-image-gallery';
-import useWindowSize from '../../hooks/useWindowSize';
-import './ImageGallery.css'
+import React, { useRef, useEffect, useState } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import './ImageGallery.css';
 
 const ImageGallery = ({ images }) => {
-  const [data, setData] = useState([]);
-  const { width } = useWindowSize();
-
-  let desktop = width > 1333 ? true : false;
+  const [currentImage, setCurrentImage] = useState(null);
+  const carouselRef = useRef(null);
 
   useEffect(() => {
-    const arrayGallery = [];
-    images.map((dat) => {
-      return arrayGallery.push({ original: dat.url, thumbnail: dat.url });
-    });
-    setData(arrayGallery);
-  }, [images]);
+    if (currentImage && carouselRef.current) {
+      // Obtener el tamaño de la imagen actual
+      const imageSize = {
+        width: currentImage.offsetWidth,
+        height: currentImage.offsetHeight,
+      };
+
+      // Establecer el tamaño del carrusel según el tamaño de la imagen
+      carouselRef.current.style.width = `${imageSize.width}px`;
+      carouselRef.current.style.height = `${imageSize.height}px`;
+    }
+  }, [currentImage]);
+
+  const handleImageLoad = (event) => {
+    setCurrentImage(event.target);
+  };
 
   return (
-    <div className="containerReactImageGallery">
-      {desktop ? (
-        <ReactImageGallery
-          items={data}
-          showPlayButton={false}
-          showFullscreenButton={false}
-          showIndex={true}
-          autoPlay={false}
-          infinite={true}
-          //   showBullets={true}
-        />
-      ) : (
-        <ReactImageGallery
-          items={data}
-          showPlayButton={false}
-          showFullscreenButton={false}
-          showIndex={true}
-          showThumbnails={false}
-          slideDuration={1000}
-          swipingTransitionDuration={500}
-          slideInterval={3000}
-          autoPlay={true}
-          infinite={true}
-        />
-      )}
+    <div className="carousel-container">
+      <Carousel
+        showArrows={true}
+        showThumbs={false}
+        showStatus={false}
+        autoPlay={true}
+        infiniteLoop={true}
+      >
+        {images.map((image, index) => (
+          <div key={index}>
+            <img
+              src={image.url}
+              alt={`Image ${index}`}
+              onLoad={handleImageLoad}
+            />
+          </div>
+        ))}
+      </Carousel>
     </div>
   );
 };
 
-export default ImageGallery;
+export default ImageGallery;
