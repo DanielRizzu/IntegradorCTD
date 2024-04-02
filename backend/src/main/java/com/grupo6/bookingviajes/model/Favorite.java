@@ -16,10 +16,10 @@ import javax.persistence.*;
 @Setter
 public class Favorite {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "user_id")
-    private Integer userId;
+    private Integer user_id;
     @Column(name = "product_id")
-    private Integer productId;
+    private Integer product_id;
 }

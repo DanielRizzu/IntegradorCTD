@@ -19,7 +19,7 @@ import java.util.Optional;
 public class FavoriteController {
 
    @Autowired
-   FavoriteService favoriteService;
+   FavoriteServiceImpl favoriteService;
 
    @GetMapping()
     public ResponseEntity<List<Favorite>> listarFavoritos(){
@@ -30,7 +30,7 @@ public class FavoriteController {
 
    @GetMapping("/{id}")
     public ResponseEntity<List<Favorite>> listarFavoritosUsuario(@PathVariable Integer id){
-        List<Favorite> resultado = favoriteService.getByUserId(id);
+        List<Favorite> resultado = favoriteService.getByUser(id);
         return ResponseEntity.ok(resultado);
 
    }
@@ -42,7 +42,7 @@ public class FavoriteController {
 
    @DeleteMapping("/{userId}/{productId}")
     public ResponseEntity eliminarFavorito(@PathVariable Integer userId, Integer productId){
-       Optional<Favorite> resultado = Optional.ofNullable(favoriteService.getByBothId(userId, productId));
+       Optional<Favorite> resultado = Optional.ofNullable(favoriteService.getByBoth(userId, productId));
        if(resultado.isPresent()){
            return ResponseEntity.ok(resultado);
        }else{

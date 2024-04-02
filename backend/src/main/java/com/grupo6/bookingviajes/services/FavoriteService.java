@@ -6,10 +6,10 @@ import com.grupo6.bookingviajes.model.Product;
 import java.util.List;
 
 public interface FavoriteService {
-    Favorite getByBothId(Integer userId, Integer productId);
+    Favorite getByBoth(Integer userId, Integer productId);
     List<Favorite> getAllFavorites();
-    List<Favorite> getByUserId(Integer userId);
-    List<Favorite> getByProductId(Integer productId);
+    List<Favorite> getByUser(Integer userId);
+    List<Favorite> getByProduct(Integer productId);
     Favorite saveFavorite(Favorite favorite);
     void deleteFavorite(Integer userId, Integer productId);
 }
