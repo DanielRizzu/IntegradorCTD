@@ -13,4 +13,7 @@ public interface FavoriteRepository extends JpaRepository<Favorite,Integer> {
 
     @Query(value = "SELECT * FROM favorite_product WHERE product_id = ?1", nativeQuery = true)
     List<Favorite> getByProductId(Integer productId);
+
+    @Query(value = "DELETE * FROM favorite_product WHERE user_id=?1 AND product_id = ?2", nativeQuery = true)
+    void deleteFavorite(Integer userId, Integer productId);
 }
