@@ -165,11 +165,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `db_bookingviajes`.`favorite_product` ;
 
 CREATE TABLE IF NOT EXISTS `db_bookingviajes`.`favorite_product` (
+	`id` INT NOT NULL, 
   `user_id` INT NOT NULL,
   `product_id` INT NOT NULL,
   INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
   INDEX `product_id_idx` (`product_id` ASC) VISIBLE,
-  PRIMARY KEY (`user_id`, `product_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fp_user_id`
     FOREIGN KEY (`user_id`)
     REFERENCES `db_bookingviajes`.`user` (`id`)
@@ -178,7 +179,6 @@ CREATE TABLE IF NOT EXISTS `db_bookingviajes`.`favorite_product` (
   CONSTRAINT `fp_product_id`
     FOREIGN KEY (`product_id`)
     REFERENCES `db_bookingviajes`.`product` (`id`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
