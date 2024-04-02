@@ -14,31 +14,31 @@ public class FavoriteServiceImpl implements FavoriteService {
 
     @Override
     public List<Favorite> getAllFavorites() {
-        return null;
+        return favoriteRepository.findAll();
     }
 
     @Override
     public List<Favorite> getByUserId(Integer userId) {
-        return null;
+        return favoriteRepository.getByUserId(userId);
     }
 
     @Override
     public List<Favorite> getByProductId(Integer productId) {
-        return null;
+        return favoriteRepository.getByProductId(productId);
     }
 
     @Override
     public Favorite saveFavorite(Favorite favorite) {
-        return null;
+        return favoriteRepository.save(favorite);
     }
 
     @Override
     public Favorite updateProduct(Favorite favorite) {
-        return null;
+        return favoriteRepository.save(favorite);
     }
 
     @Override
     public void deleteFavorite(Integer userId, Integer productId) {
-
+        favoriteRepository.deleteFavorite(userId,productId);
     }
 }
