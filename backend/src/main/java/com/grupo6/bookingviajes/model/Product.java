@@ -58,39 +58,6 @@ public class Product {
     public Product() {
     }
 
-   /* public Product(Integer id, String name, String description, String short_description, boolean active, String address, String latitude, String longitude, String area, Double average_score, City city, Category category) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.short_description = short_description;
-        this.active = active;
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.area = area;
-        this.average_score = average_score;
-        this.city = city;
-        this.category = category;
-    }*/
-
-    /*public Product(Integer id, String name, String description, String short_description, boolean active, String address, String latitude, String longitude, String area, Double average_score, City city, Category category, String policiesSite, String policiesSecurityAndHealth, String policiesCancellation) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.short_description = short_description;
-        this.active = active;
-        this.address = address;
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.area = area;
-        this.average_score = average_score;
-        this.city = city;
-        this.category = category;
-        this.policiesSite = policiesSite;
-        this.policiesSecurityAndHealth = policiesSecurityAndHealth;
-        this.policiesCancellation = policiesCancellation;
-    }*/
-
     public Product(Integer id, String name, String description, String short_description, boolean active, String address, String latitude, String longitude, String area, Double average_score, City city, Category category, String policiesSite, String policiesSecurityAndHealth, String policiesCancellation, List<ProductAttribute> attributes) {
         this.id = id;
         this.name = name;
