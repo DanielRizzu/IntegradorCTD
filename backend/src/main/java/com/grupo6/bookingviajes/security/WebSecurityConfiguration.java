@@ -58,6 +58,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/swagger-resources/**").permitAll()
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/users/create").permitAll()
+                .antMatchers("/favorites", "/favorites/create").permitAll()
 
                 /* USER */
                 .antMatchers("/reservations/create").hasAuthority("USER")

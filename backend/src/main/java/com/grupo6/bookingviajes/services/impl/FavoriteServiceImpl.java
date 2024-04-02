@@ -13,6 +13,11 @@ public class FavoriteServiceImpl implements FavoriteService {
     private FavoriteRepository favoriteRepository;
 
     @Override
+    public Favorite getByBothId(Integer userId, Integer productId) {
+        return favoriteRepository.getByBothId(userId,productId);
+    }
+
+    @Override
     public List<Favorite> getAllFavorites() {
         return favoriteRepository.findAll();
     }
@@ -29,11 +34,6 @@ public class FavoriteServiceImpl implements FavoriteService {
 
     @Override
     public Favorite saveFavorite(Favorite favorite) {
-        return favoriteRepository.save(favorite);
-    }
-
-    @Override
-    public Favorite updateProduct(Favorite favorite) {
         return favoriteRepository.save(favorite);
     }
 

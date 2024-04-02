@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface FavoriteRepository extends JpaRepository<Favorite,Integer> {
+    @Query(value = "SELECT * FROM favorite_product WHERE user_id = ?1 AND product_id = ?2", nativeQuery = true)
+    Favorite getByBothId(Integer userId, Integer productId);
+
     @Query(value = "SELECT * FROM favorite_product WHERE user_id = ?1", nativeQuery = true)
     List<Favorite> getByUserId(Integer userId);
 
