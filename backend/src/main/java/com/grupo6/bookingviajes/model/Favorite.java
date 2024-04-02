@@ -7,17 +7,19 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "favorite_product")
+
+@Table(name = "favorite_product")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 public class Favorite {
-  //  @Id
-    //@ManyToOne
+@Id
+@ManyToOne
+@JoinColumn(name = "user_id")
     private User user;
-    //@Id
-    //@ManyToOne
+@Id
+@ManyToOne
+@JoinColumn(name = "product_id")
     private Product producto;
 }
