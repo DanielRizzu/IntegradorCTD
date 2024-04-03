@@ -74,3 +74,31 @@
     color: white;
   }
 }
+
+.dropdownMenu {
+  position: absolute; 
+  top: calc(100% + 10px); /* Posiciona el menú 10px debajo del contenedor padre */
+  right: 0; 
+  background-color: white; 
+  border: 1px solid var(--primary-color); /* Borde del menú */
+  border-radius: 8px; /* Borde redondeado */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 10px; /* Espacio interno */
+  z-index: 999; /* Asegura que el menú aparezca encima de otros elementos */
+  min-width: 200px; /* Ancho mínimo */
+}
+
+.dropdownMenu ul li button {
+  background: none;
+  border: none;
+  color: var(--thirth-color);
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+
+
+.container p:hover {
+  cursor: pointer;
+  color: var(--hover-color); /* Cambia el color al pasar el cursor */
+}

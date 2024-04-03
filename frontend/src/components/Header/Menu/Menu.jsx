@@ -53,16 +53,7 @@ const Menu = () => {
           ) : (
             <>
               <Avatar />
-              <button
-                className={style.closeMenu}
-                onClick={() => {
-                  userContextResult.logoutUser();
-                  navigate('/');
-                }}
-                aria-label="Cerrar sesión"
-              >
-                <FontAwesomeIcon icon={faXmark} style={{position: "absolute", top: 10, right: 10, height: 25}}/>
-              </button>
+              
             </>
           )}
         </div>
