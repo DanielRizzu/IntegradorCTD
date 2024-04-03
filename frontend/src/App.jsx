@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Administration from './pages/Administration/Administration';
 import NewProductSuccessful from './components/NewProductSuccessful/NewProductSuccessful';
 import { SuperAdministration } from './pages/Administration/SuperAdministration';
+import BookingReservationHeader from './pages/BookingReservationPage/BookingReservationHeader';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
               <Route path="/booking/success" element={<BookingSucces />} />
               <Route path="/administration" element={<Administration />} />
               <Route path="/superuser" element={<SuperAdministration />} />
+              <Route path="/reservas" element={<BookingReservationHeader />} />
               <Route
                 path="/successful-new-product"
                 element={<NewProductSuccessful />}

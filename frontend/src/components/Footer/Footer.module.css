@@ -2,10 +2,9 @@
   color: var(--white-color);
   background-color: var(--primary-color);
   padding: 21px 19px;
-  height: 58px;
-  position: static;
+  position: fixed;
   bottom: 0;
-  width: 98.96vw;
+  width: 100%; /* Ancho al 100% de la ventana del navegador */
   font-size: 24px;
   z-index: 10;
 }

@@ -59,9 +59,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/authenticate").permitAll()
                 .antMatchers("/users/create").permitAll()
                 .antMatchers("/favorites", "/favorites/**").permitAll()
-
+                .antMatchers("/products", "/cities", "/categories").permitAll()
                 /* USER */
-                .antMatchers("/reservations/create").hasAuthority("USER")
+                .antMatchers("/reservations/create").permitAll()
                 /* ADMIN */
                 .antMatchers("/cities/create", "/cities/update", "/cities/delete/{id}").hasAuthority("ADMIN")
                 .antMatchers("/products/create", "/products/update", "/products/delete/{id}").hasAuthority("ADMIN")

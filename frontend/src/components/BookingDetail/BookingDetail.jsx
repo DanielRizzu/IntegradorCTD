@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStar } from '@fortawesome/free-solid-svg-icons';
 import { userContext } from '../../context/UserContext';
 
-const BookingDetail = ({ checkInTime }) => {
+const BookingDetail = ({ checkInTime}) => {
   const [product, setProduct] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
   const { rangeDate } = useContext(dateRangeContext);
@@ -54,48 +54,66 @@ const BookingDetail = ({ checkInTime }) => {
     }
   }, [rangeDate, checkInTime]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const newBooking = {
-      arrival_time: checkInTime + ':00', // format = 10:00:00
-      check_in_date: rangeDate[0].toISOString().slice(0, 10), // format = aaaa-mm-dd (2023-11-24)
-      checkout_date: rangeDate[1].toISOString().slice(0, 10),
-      comments: '',
-      product: {
-        id: Number(id),
-      },
-      user: {
-        id: userInfo.id,
-      },
+    console.log('Valores de rangeDate[0], rangeDate[1] y checkInTime:', rangeDate[0], rangeDate[1], checkInTime);
+    const adjustToUTC = (date) => {
+      const offset = date.getTimezoneOffset();
+      const adjustedDate = new Date(date.getTime() + (offset * 60 * 1000));
+      return adjustedDate;
     };
-    
-
+  
+    const formattedCheckInTime = checkInTime !== null ? checkInTime + ':00' : '00:00';
+    const formattedArrivalTime = formattedCheckInTime + ':00';
+    const checkInDate = rangeDate[0] ? adjustToUTC(rangeDate[0]).toISOString().slice(0, 10) : null;
+    const checkOutDate = rangeDate[1] ? adjustToUTC(rangeDate[1]).toISOString().slice(0, 10) : null;
+  
+    console.log('Información de reserva a enviar:', {
+      arrival_time: formattedArrivalTime,
+      check_in_date: checkInDate,
+      checkout_date: checkOutDate,
+      comments: '',
+      user: { id: userInfo.id },
+      product: { id: Number(id) },
+    });
+  
     if (
       rangeDate[0] !== null &&
-      rangeDate[1] !== null &&
-      // checkInTime !== null  // de momento se anula
-      checkInTime !== null
+      rangeDate[1] !== null
     ) {
-      const jwt = JSON.parse(localStorage.getItem('jwt'));
-      fetch(`${baseUrl.url}/reservations/create`, {
-        mode: 'cors',
-        method: 'POST',
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${jwt}`,
-        },
-        body: JSON.stringify(newBooking),
-      })
-        .then((response) => response.json())
-        .then((data) => console.log('New booking: ', data));
+      console.log('Condiciones del if se están cumpliendo');
+      const token = JSON.parse(localStorage.getItem('jwt'));
+      try {
+        const response = await fetch(`${baseUrl.url}/reservations/create`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            arrival_time: formattedArrivalTime,
+            check_in_date: checkInDate,
+            checkout_date: checkOutDate,
+            comments: '',
+            user: { id: userInfo.id },
+            product: { id: Number(id) },
+          }),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          console.log('New booking:', data);
+          navigate('/booking/success');
+        } else {
+          console.error('Error al procesar la solicitud');
+        }
+      } catch (error) {
+        console.error('Error de red', error);
+      }
     }
-
-    navigate('/booking/success');
   };
+  
 
+  
   return (
     <>
       {product.length !== 0 && (
@@ -141,6 +159,7 @@ const BookingDetail = ({ checkInTime }) => {
                 </div>
                 <div className={style.lineBooking}></div>
               </div>
+              
               <button
                 disabled={isDisabled}
                 className="btn btn2 w-100"

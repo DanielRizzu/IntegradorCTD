@@ -28,6 +28,14 @@ const Avatar = () => {
           <span className={style.lineVertical}></span>
         </div>
       )}
+      {roleType === 'USER' && (
+        <div className={style.containerRole}>
+          <Link to="/reservas" className={style.textRole}>
+            Mis reservas
+          </Link>
+          <span className={style.lineVertical}></span>
+        </div>
+      )}
       <div className={style.initialsContainer}>
         <span>{`${name.substring(0, 1)}${lastname.substring(0, 1)}`}</span>
       </div>
