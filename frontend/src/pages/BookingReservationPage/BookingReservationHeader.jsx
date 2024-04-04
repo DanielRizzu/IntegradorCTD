@@ -8,6 +8,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography  } from '@mui/material';
+import baseUrl from '../../../utils/baseUrl.json'
 
 const WhiteTextButton = styled(Button)({
   color: 'white',
@@ -26,7 +27,7 @@ const BookingReservation = ({ onCreateProductClick, onDeleteProductClick }) => {
   const fetchReservations = async () => {
     try {
       // Obtener el token del localStorage
-      const response = await fetch(`http://localhost:8080/reservations/user/${userId}`);
+      const response = await fetch(`${baseUrl.url}/reservations/user/${userId}`);
       if (response.ok) {
         const data = await response.json();
         setReservations(data); // Actualiza el estado con las reservas obtenidas
