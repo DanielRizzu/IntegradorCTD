@@ -11,6 +11,9 @@ import {
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { styled } from '@mui/system';
 import { Button } from '@mui/material';
+import baseUrl from '../../../utils/baseUrl.json'
+
+
 
 const RedButton = styled(Button)({
   backgroundColor: '#b30000',
@@ -55,7 +58,7 @@ const ProductAdmin = ({
     const token = JSON.parse(localStorage.getItem('jwt'));
   console.log('Token:', token); 
     try {
-      const response = await fetch(`http://localhost:8080/products/delete/${id}`, {
+      const response = await fetch(`${baseUrl.url}/products/delete/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,
