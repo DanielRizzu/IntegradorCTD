@@ -13,9 +13,12 @@ div.slider {
 }
 
 @media (max-width: 768px) {
-div.slider{
+    div.slider{
     justify-content: center;
+    }
 }
-
-
+@media (max-width: 1714px) {
+    div.slider {
+    background-position-y: 0px;
+    }
 }

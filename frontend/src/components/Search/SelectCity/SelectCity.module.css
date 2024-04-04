@@ -107,3 +107,9 @@
   color: #fff;
   color: var(--primary-color);
 } */
+
+@media (max-width: 900px) {
+  .initialDescription {
+    font-size: 12px;
+  }
+}
