@@ -18,6 +18,7 @@ import { SuperAdministration } from './pages/Administration/SuperAdministration'
 import BookingReservationHeader from './pages/BookingReservationPage/BookingReservationHeader';
 
 function App() {
+  
   return (
     <BrowserRouter>
       <UserContextProvider>

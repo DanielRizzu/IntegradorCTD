@@ -64,10 +64,11 @@ const ProductAdmin = ({
       });
       if (response.ok) {
         // Aquí puedes manejar la eliminación exitosa
-        console.log('Paquete eliminado con éxito');
+        alert('Paquete eliminado con éxito');
+        window.location.reload();
       } else {
         // Aquí puedes manejar el caso en que la eliminación falla
-        console.error('Error al eliminar el paquete');
+        alert('Error al eliminar el paquete');
       }
     } catch (error) {
       console.error('Error de red', error);

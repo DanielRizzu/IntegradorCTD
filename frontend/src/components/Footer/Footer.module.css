@@ -2,7 +2,7 @@
   color: var(--white-color);
   background-color: var(--primary-color);
   padding: 21px 19px;
-  position: fixed;
+  position: static;
   bottom: 0;
   width: 100%; /* Ancho al 100% de la ventana del navegador */
   font-size: 24px;

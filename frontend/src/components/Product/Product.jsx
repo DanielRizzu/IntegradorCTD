@@ -43,11 +43,7 @@ const Product = ({
   return (
     <div className={style.cardContainer}>
       <div className={style.productImageContainer}>
-        <FontAwesomeIcon
-          onClick={handleAddFavorite}
-          className={style.productFavorite}
-          icon={!isFavorite ? faHeartRegular : faHeart}
-        />
+        
         <img className={style.productImage} src={imgUrl[0]?.url} alt={title} />
       </div>
       <div className={style.cardDetails}>

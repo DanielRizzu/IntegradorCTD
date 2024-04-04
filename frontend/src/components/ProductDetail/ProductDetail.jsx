@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Modal from '../Modal/Modal';
-import Calendar from '../Search/Calendar/Calendar';
 import ProductPolicies from '../ProductPolicies/ProductPolicies';
 import ProductFeatures from '../ProductFeatures/ProductFeatures';
 import ProductDescription from '../ProductDescription/ProductDescription';
@@ -67,17 +66,12 @@ const ProductDetail = ({
       <ProductDescription {...{ name, description }} />
       <ProductFeatures {...{ attributes }} />
       {/* Calendario */}
-      <section className={style.availableDatesContainer}>
-        <h2>Fechas disponibles</h2>
-        <div className={style.calendarReserve}>
-          <div className={style.calendarContainer}>
-            <Calendar inline={true} />
-          </div>
+      <section className={style.availableDatesContainer}>       
           <div className={style.reserveContainer}>
-            <p>Ventana de reserva</p>
+            <p>Esperamos que este paquete sea de su agrado! Debajo podrá realizar una reserva y revisar la información importante del mismo.</p>
             {/*provisorio, realizar bien la validacion y redireccion */}
             <button
-              className="btn btn2 w-100"
+              className="btn btn2 w-100 botonReserva"
               onClick={() => {
                 userJwt
                   ? navigate(`/product/${id}/booking`)
@@ -87,7 +81,7 @@ const ProductDetail = ({
               Hacer reserva
             </button>
           </div>
-        </div>
+      
       </section>
       <ProductPolicies
         policies={{
