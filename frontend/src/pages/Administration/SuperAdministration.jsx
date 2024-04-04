@@ -5,6 +5,7 @@ import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader'
 import { UserCard } from '../../components/Cards/UserCard'
 import style from './SuperAdministration.module.css'
 import { EditUser } from '../../components/Forms/EditUser/EditUser'
+import baseUrl from '../../../utils/baseUrl.json'
 
 export const SuperAdministration = () => {
 
@@ -14,7 +15,7 @@ export const SuperAdministration = () => {
   const jwt = JSON.parse(localStorage.getItem('jwt'))
 
   const fetchUsers = async()=>{
-    const resp = await fetch('http://localhost:8080/users');
+    const resp = await fetch(`${baseUrl.url}/users`);
     const data = await resp.json();
     data.shift() //Para filtrar al usuario "superuser" que siempre ocupará la prosicion 0 del array obtenido de la base de datos.
     console.log(data);
@@ -77,7 +78,7 @@ export const SuperAdministration = () => {
   );
 
   const fetchDelete = (id)=>{
-    fetch(`http://localhost:8080/users/delete/${id}`,{
+    fetch(`${baseUrl.url}/users/delete/${id}`,{
             method: 'DELETE',
             headers: {
                 Authorization: `Bearer ${jwt}`,
