@@ -8,7 +8,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/system';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography  } from '@mui/material';
-import baseUrl from '../../../utils/baseUrl.json'
+import baseUrl from '../../utils/baseUrl.json'
 
 const WhiteTextButton = styled(Button)({
   color: 'white',

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import adminStyle from '../../pages/Administration/SuperAdministration.module.css'
 import { ProductCard } from '../Cards/ProductCard Admin/ProductCard';
 import ProductListContainerAdmin from '../Cards/ProductCard Admin/ProductListContainerAdmin';
-import baseUrl from '../../../utils/baseUrl.json'
+import baseUrl from '../../utils/baseUrl.json'
 
 const DeleteProduct = () => {
   const [listProducts, setListProducts] = useState([]);

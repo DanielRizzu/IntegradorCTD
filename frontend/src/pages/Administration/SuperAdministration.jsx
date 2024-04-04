@@ -5,8 +5,8 @@ import SecondaryHeader from '../../components/SecondaryHeader/SecondaryHeader'
 import { UserCard } from '../../components/Cards/UserCard'
 import style from './SuperAdministration.module.css'
 import { EditUser } from '../../components/Forms/EditUser/EditUser'
-import baseUrl from '../../../utils/baseUrl.json'
-
+import baseUrl from '../../utils/baseUrl.json'
+/.
 export const SuperAdministration = () => {
 
   const [listUsers, setListUsers] = useState([])
