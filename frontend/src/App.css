@@ -12,18 +12,18 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Cambiado de height: 100%; a min-height: 100vh; */
+  min-height: 100vh;
   position: relative;
   width: 100%;
 }
 
-/* Agrega el siguiente estilo para el contenido */
+
 .content-container {
-  flex: 1; /* Esto hará que el contenido ocupe el espacio restante */
+  flex: 1; 
   position: relative;
 }
 
-/* Agrega el siguiente estilo para el footer */
+
 .Footer {
   background-color: #ccc;
   padding: 20px;

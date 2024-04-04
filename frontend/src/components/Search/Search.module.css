@@ -20,7 +20,7 @@
   border-radius: 5px;
   height: 40px;
   /* margin-bottom: 5px; */
-  width: 100%;
+  width: 50%;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   outline: 0;
 }
@@ -38,6 +38,10 @@
 .searchBtn {
   width: 100%;
 }
+.clearBtn{
+  width: 100%;
+}
+
 
 /* para la busqueda de paquetes */
 
@@ -55,7 +59,7 @@
   border-radius: 20px;
   padding: 5px 10px;
   height: 50px;
-  width: 500px;
+  width: 200px;
   border: 1px solid #000000;
   margin-top: 20px;
   
@@ -68,7 +72,7 @@
   border-radius: 5px;
   height: 40px;
   /* margin-bottom: 5px; */
-  width: 70%;
+  width: 60%;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.15);
   outline: 0;
 }
@@ -90,6 +94,9 @@
   .searchBtn {
     max-width: 166px;
   }
+  .clearBtn{
+    max-width: 166px;
+  }
 }
 
 @media (min-width: 1333px) {
@@ -99,6 +106,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .selectCity {
     max-width: 200px;
   }
@@ -108,4 +116,8 @@
   .searchBtn {
     max-width: 180px;
   }
+  .clearBtn{
+    max-width: 180px;
+  }
+  
 }
