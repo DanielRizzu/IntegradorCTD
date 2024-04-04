@@ -3,6 +3,7 @@ import style from '../Form.module.css'
 import styleInput from '../Input/InputForm.module.css'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import baseUrl from '../../../utils/baseUrl.json'
 
 export const EditUser = ({ userData, refresh }) => {
     const [data, setData] = useState(userData)
@@ -44,7 +45,7 @@ export const EditUser = ({ userData, refresh }) => {
         console.log(jwt)
         console.log(typeof(jwt))
 
-        fetch("http://localhost:8080/users/update",{
+        fetch(`${baseUrl.url}/users/update`,{
             method: 'PUT',
             headers: {
                 Authorization: `Bearer ${jwt}`,

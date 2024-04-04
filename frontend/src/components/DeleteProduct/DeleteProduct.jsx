@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import adminStyle from '../../pages/Administration/SuperAdministration.module.css'
 import { ProductCard } from '../Cards/ProductCard Admin/ProductCard';
 import ProductListContainerAdmin from '../Cards/ProductCard Admin/ProductListContainerAdmin';
+import baseUrl from '../../../utils/baseUrl.json'
 
 const DeleteProduct = () => {
   const [listProducts, setListProducts] = useState([]);
@@ -10,7 +11,7 @@ const DeleteProduct = () => {
   const [categoriesFilter, setCategoriesFilter] = useState(null);
 
   const fetchProducts = async () => {
-    const resp = await fetch('http://localhost:8080/products');
+    const resp = await fetch(`${baseUrl.url}/products`);
     const data = await resp.json();
     setListProducts(data);
   }
