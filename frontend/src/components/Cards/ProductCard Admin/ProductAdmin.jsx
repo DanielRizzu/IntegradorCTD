@@ -68,7 +68,7 @@ const ProductAdmin = ({
         window.location.reload();
       } else {
         // Aquí puedes manejar el caso en que la eliminación falla
-        alert('Error al eliminar el paquete');
+        alert('El paquete tiene una reserva no se puede eliminar');
       }
     } catch (error) {
       console.error('Error de red', error);
