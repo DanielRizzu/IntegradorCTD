@@ -67,6 +67,7 @@ const Login = () => {
           navigate('/');
         })
         .catch((err) => {
+          console.log(err)
           setIsLoading(false);
           setIsFormValid(false);
           setMsgError(

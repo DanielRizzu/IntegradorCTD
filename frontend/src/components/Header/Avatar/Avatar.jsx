@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userContext } from '../../../context/UserContext';
 import style from './Avatar.module.css';
 
@@ -9,6 +9,8 @@ const Avatar = () => {
   const name = userContextResult.userInfo.name;
   const lastname = userContextResult.userInfo.lastName;
   const roleType = userContextResult.userInfo.role;
+  const navigate = useNavigate();
+
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -66,6 +68,7 @@ const Avatar = () => {
               <li>
                 <button onClick={() => {
                   userContextResult.logoutUser();
+                  navigate("/")
                   // Otros códigos necesarios para cerrar el menú o realizar acciones adicionales
                 }}>
                   Cerrar sesión
