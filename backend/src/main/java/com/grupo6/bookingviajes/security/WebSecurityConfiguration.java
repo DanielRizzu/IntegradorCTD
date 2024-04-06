@@ -65,14 +65,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 /* ADMIN */
                 .antMatchers("/cities/create", "/cities/update", "/cities/delete/{id}").hasAuthority("ADMIN")
                 .antMatchers("/products/create", "/products/update", "/products/delete/{id}").hasAuthority("ADMIN")
-                .antMatchers("/attributes/**").hasAuthority("ADMIN")
+                .antMatchers("/attributes", "/attributes/**").hasAnyAuthority("ADMIN", "SUPERUSER")
                 .antMatchers("/images/**").hasAuthority("ADMIN")
 
                 /* SUPERUSER */
                 .antMatchers("/users/update", "/users/delete/{id}").hasAuthority("SUPERUSER")
                 .antMatchers("/cities/create", "/cities/update", "/cities/delete/{id}").hasAuthority("SUPERUSER")
                 .antMatchers("/products/create", "/products/update", "/products/delete/{id}").hasAnyAuthority("ADMIN", "SUPERUSER")
-                .antMatchers("/attributes/**").hasAuthority("SUPERUSER")
                 .antMatchers("/images/**").hasAuthority("SUPERUSER")
 
                 .anyRequest().permitAll();

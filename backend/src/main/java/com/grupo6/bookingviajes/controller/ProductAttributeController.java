@@ -4,6 +4,7 @@ import com.grupo6.bookingviajes.exception.DuplicatedValueException;
 import com.grupo6.bookingviajes.model.City;
 import com.grupo6.bookingviajes.model.ProductAttribute;
 import com.grupo6.bookingviajes.services.ProductAttributeService;
+import com.grupo6.bookingviajes.services.impl.ProductAttributeServiceImpl;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import java.util.Optional;
 public class ProductAttributeController {
 
     @Autowired
-    private ProductAttributeService productAttributeService;
+    private ProductAttributeServiceImpl productAttributeService;
 
     @GetMapping
     public ResponseEntity<List<ProductAttribute>> getAllAttributes() {
