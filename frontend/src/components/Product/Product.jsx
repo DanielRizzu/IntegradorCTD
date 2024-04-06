@@ -54,12 +54,23 @@ const Product = ({
         </div>
 
         <div className={style.productInformation}>
-          <p className={style.productLocation}>
+          {/* <p className={style.productLocation}>
             <FontAwesomeIcon icon={faLocationDot} /> {location.name} -{' '}
-            <Link className={style.linkLocation} href="#a">
+            <Link className={style.linkLocation} href="">
               Ver ubicacion
             </Link>{' '}
-          </p>
+          </p> */}
+          <p className={style.productLocation}>
+            <FontAwesomeIcon icon={faLocationDot} /> {location.name} -{' '}
+          <a
+            className={style.linkLocation}
+            href="https://www.google.com/maps/place/712+Red+Bark+Ln,+Henderson,+NV+89011,+EE.+UU./@36.0771811,-115.0153233,3a,75y,130.67h,85.17t/data=!3m6!1e1!3m4!1sg1ETpkB_QDQI6IUm55QaMw!2e0!7i13312!8i6656!4m7!3m6!1s0x80c8d0b89793735f:0x82738f1bb7cadcb8!8m2!3d36.0773875!4d-115.0153163!10e5!16s%2Fg%2F11c2gxkb7m?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver ubicación
+          </a>
+        </p>
           {/* attributes */}
           <div className={style.propertyHighlights}>
             {attributes?.map((attribute) => (

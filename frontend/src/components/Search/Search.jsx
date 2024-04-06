@@ -56,6 +56,62 @@ import { Input } from '@mui/material';
 
 // export default Search;
 
+// const Search = ({ handleSearch, handleClearFilters }) => {
+//   const [city, setCity] = useState(null);
+//   const [searchTerm, setSearchTerm] = useState('');
+//   const { rangeDate } = useContext(dateRangeContext);
+
+//   const getCity = (valueCity) => {
+//     setCity(valueCity);
+//     // Realizar la búsqueda solo si el término de búsqueda está presente
+//     if (searchTerm) {
+//       handleSearch(valueCity, rangeDate, searchTerm);
+//     }
+//   };
+
+//   const handleTermChange = (e) => {
+//     const term = e.target.value;
+//     setSearchTerm(term);
+//     // Realizar la búsqueda cuando el término de búsqueda cambia
+//     handleSearch(city, rangeDate, term);
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     // Realizar la búsqueda cuando se envía el formulario
+//     handleSearch(city, rangeDate, searchTerm);
+//   };
+
+//   const handleClear = () => {
+//     // Limpiar todos los filtros
+//     setCity(null);
+//     setSearchTerm('');
+//     // Llamar a la función de búsqueda sin filtros
+//     handleSearch(null, rangeDate, '');
+//   };
+
+//   return (
+//     <div className={style.searchContainer}>
+//       <form className={style.searchForm} onSubmit={handleSubmit}>
+//         <Input
+//           className={style.searchPackageInput}
+//           type="search"
+//           placeholder="Buscar..."
+//           value={searchTerm}
+//           onChange={handleTermChange}
+//         />
+//         <SelectCity getCity={getCity} />
+//         <Calendar />
+//         <button type="button" onClick={handleClear} className={`btn btn2 ${style.clearBtn}`}>Limpiar filtros</button>
+//         <button type="submit" className={`btn btn2 ${style.searchBtn}`}>Buscar</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default Search;
+
+
 const Search = ({ handleSearch, handleClearFilters }) => {
   const [city, setCity] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -88,11 +144,17 @@ const Search = ({ handleSearch, handleClearFilters }) => {
     setSearchTerm('');
     // Llamar a la función de búsqueda sin filtros
     handleSearch(null, rangeDate, '');
+
+    // Resetear el contenido del formulario
+    document.getElementById("searchForm").reset();
+
+    // Llamar a la función para resetear los filtros en Home
+    handleClearFilters();
   };
 
   return (
     <div className={style.searchContainer}>
-      <form className={style.searchForm} onSubmit={handleSubmit}>
+      <form id="searchForm" className={style.searchForm} onSubmit={handleSubmit}>
         <Input
           className={style.searchPackageInput}
           type="search"

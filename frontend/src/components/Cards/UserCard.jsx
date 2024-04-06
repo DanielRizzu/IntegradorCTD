@@ -1,5 +1,7 @@
 import React from 'react'
 import style from './UserCard.module.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 export const UserCard = ( { id, user,onEdit, onDelete } ) => {
   
@@ -20,17 +22,25 @@ export const UserCard = ( { id, user,onEdit, onDelete } ) => {
 
         <div className={style.btnCardUserContainer}>
 
-            <button className={style.btnCardUser} onClick={handleEdit}>
+            {/* <button className={style.btnCardUser} onClick={handleEdit}>
               <img className={style.imgBtnCardUser}
-                src="src/icons/RiEditCircleFill.png"
+                // src="src/icons/RiEditCircleFill.png"
+                src="https://ibb.co/Pcm6v7b"
                 alt="edit button" />
             </button>
 
             <button className={style.btnCardUser} onClick={handleDelete}>
               <img className={style.imgBtnCardUser} 
-                src="src/icons/PepiconsPopTrashCircleFilled.png" 
+                //src="src/icons/PepiconsPopTrashCircleFilled.png" 
+                src='https://flyclipart.com/thumb2/bin-delete-garbage-recycle-remove-trash-icon-695067.png'
                 alt="delete button" />
-            </button>
+            </button> */}
+        <button className={style.btnCardUser} onClick={handleEdit}>
+          <FontAwesomeIcon icon={faEdit} className={style.iconBtnCardUser} />
+        </button>
+        <button className={style.btnCardUser} onClick={handleDelete}>
+          <FontAwesomeIcon icon={faTrashAlt} className={style.iconBtnCardUser} />
+        </button>
         
         </div>
 
