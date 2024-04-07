@@ -11,11 +11,12 @@ import baseUrl from '../../../utils/baseUrl.json';
 import style from './SelectAttribute.module.css';
 import Input from '../../Forms/Input/Input';
 
-const SelectAttribute = () => {
+const SelectAttribute = ({getAttributes}) => {
   const [arrayGetAtrributes, setArrayGetAttributes] = useState([]);
   const [arraySelectedOptions, setArraySelectedOptions] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+
 
   const toggling = () => setIsOpen(!isOpen);
 
@@ -27,7 +28,7 @@ const SelectAttribute = () => {
 
   let selectAttribute = selectedOption
     ? `${selectedOption?.name}`
-    : 'Elige un ícono';
+    : 'Elige un atributo';
 
   useEffect(() => {
     const jwt = JSON.parse(localStorage.getItem('jwt'));
@@ -50,19 +51,18 @@ const SelectAttribute = () => {
   const handleAddAttribute = () => {
     setArraySelectedOptions([
       ...arraySelectedOptions,
-      { value: selectedOption.name, icon: selectedOption.icon, valid: 'true' },
+      { icon: selectedOption.icon, id: selectedOption.id, name: selectedOption.name },
     ]);
     setSelectedOption(null);
     // setAttributeName({ value: '', valid: null });
     // setAttributeIcon({ value: '', valid: null });
   };
 
-  const handleDeleteAttribute = (attributeValue) => {
-    const newArrayAttributes = arraySelectedOptions.filter(
-      (attr) => attr.value !== attributeValue
-    );
+  const handleDeleteAttribute = (attributeId) => {
+    const newArrayAttributes = arraySelectedOptions.filter((attr)=>{ return attr.id !== attributeId});
     setArraySelectedOptions(newArrayAttributes);
-    console.log(attributeValue);
+    console.log("ARRAY FILTRADO")
+    console.log(newArrayAttributes)
   };
 
   return (
@@ -120,22 +120,19 @@ const SelectAttribute = () => {
           type="button" // Para que no se ejecute el submit y se envien cada vez las imagenes
         >
           <FontAwesomeIcon icon={faPlus} />
-        </button>
+        </button> 
       </div>
       {arraySelectedOptions.map((attributeArray, i) => {
         console.log('attribute', attributeArray);
         return (
           <div className={style.containerInput} key={i}>
-            <Input
-              state={attributeArray}
-              //changeState={setImage}
-              //label="Imagen"
-              type="text"
-              readonly
-            />
+            <p className={style.input}>
+              <FontAwesomeIcon icon={fas[attributeArray?.icon]} />
+              {attributeArray.name}
+            </p>
             <button
               className={`${style.btn} ${style.btnDelete}`}
-              onClick={() => handleDeleteAttribute(attributeArray.value)}
+              onClick={() => handleDeleteAttribute(attributeArray.id)}
               type="button"
             >
               <FontAwesomeIcon icon={faXmark} />
