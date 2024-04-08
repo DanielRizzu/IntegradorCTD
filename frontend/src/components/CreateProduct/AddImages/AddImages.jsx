@@ -6,7 +6,7 @@ import style from '../CreateProduct.module.css';
 
 const AddImages = ({ getImages }) => {
   const [arrayImages, setArrayImages] = useState([]);
-  const [image, setImage] = useState({ value: '', valid: null });
+  const [image, setImage] = useState({ title: '', url: '' });
   const [msgError, setMsgError] = useState(null);
 
   useEffect(() => {
@@ -15,6 +15,7 @@ const AddImages = ({ getImages }) => {
 
   useEffect(() => {
     getImages(arrayImages);
+    console.log(arrayImages)
   }, [arrayImages, getImages]);
 
   const regularExpressions = {
@@ -42,13 +43,17 @@ const AddImages = ({ getImages }) => {
   //console.log(isUrlRepeat(image.value));
 
   /* Optimizar los if/else */
-  const handleAddImage = () => {
+  const handleAddImage = (e) => {
+    console.log('OBJETO IMAGEN')
+    console.log(image)
+    console.log('ARRAY DE IMAGENES')
+    console.log(arrayImages)
     const urlRepeat = isUrlRepeat(image.value);
     const formatValid = isValidFormat(image.value);
     if (!urlRepeat) {
       if (formatValid) {
-        setArrayImages([...arrayImages, { ...image, valid: 'true' }]);
-        setImage({ value: '', valid: null });
+        setArrayImages([...arrayImages, {title:'', url:image.value}]);
+        setImage({ title: '', url: '' });
       } else {
         setImage((prevState) => {
           return { ...prevState, valid: 'false' };
@@ -64,7 +69,7 @@ const AddImages = ({ getImages }) => {
   };
 
   const handleDeleteImage = (imgValue) => {
-    const newArrayImages = arrayImages.filter((img) => img.value !== imgValue);
+    const newArrayImages = arrayImages.filter((img) => img.url !== imgValue);
     setArrayImages(newArrayImages);
   };
 
@@ -79,16 +84,10 @@ const AddImages = ({ getImages }) => {
         //console.log('img', imageArray);
         return (
           <div className={style.containerInput} key={i}>
-            <Input
-              state={imageArray}
-              //changeState={setImage}
-              //label="Imagen"
-              type="text"
-              readonly
-            />
+            <p>{imageArray.url}</p>
             <button
               className={`${style.btn} ${style.btnDelete}`}
-              onClick={() => handleDeleteImage(imageArray.value)}
+              onClick={() => handleDeleteImage(imageArray.url)}
               type="button"
             >
               <FontAwesomeIcon icon={faXmark} />
