@@ -116,9 +116,9 @@ const CreateProduct = () => {
         title: `Image ${propertyName.value}`,
         url: image.value,
       }
-      fetch(`${baseUrl.url}/images/update/${idProduct}`, {
+      fetch(`${baseUrl.url}/images/create/${idProduct}`, {
         mode: 'cors',
-        method: 'PUT',
+        method: 'POST',
         headers: {
           'Access-Control-Allow-Origin': '*',
           Accept: 'application/json',
