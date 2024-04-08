@@ -17,7 +17,10 @@ const SelectAttribute = ({getAttributes}) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-
+  useEffect(()=>{
+    getAttributes(arraySelectedOptions)
+    console.log(arraySelectedOptions)
+  },[arraySelectedOptions])
   const toggling = () => setIsOpen(!isOpen);
 
   const onOptionClicked = (value) => () => {

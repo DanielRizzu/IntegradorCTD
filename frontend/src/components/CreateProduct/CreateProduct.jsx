@@ -6,7 +6,7 @@ import Input from '../Forms/Input/Input';
 import TextArea from '../Forms/TextArea/TextArea';
 import SelectCity2 from '../Forms/Select/SelectCity2';
 import SelectCategory from '../Forms/Select/SelectCategory';
-//import SelectAttribute from './SelectAttribute/SelectAttribute';
+import SelectAttribute from './SelectAttribute/SelectAttribute';
 import style from './CreateProduct.module.css';
 import baseUrl from '../../utils/baseUrl.json';
 import { useNavigate } from 'react-router-dom';
@@ -41,14 +41,14 @@ const CreateProduct = () => {
       setMsgErrorImages(true);
       return;
     }
-    createNewAttribute();
+    //createNewAttribute();
     //console.log('Ejecución del submit');
 
     const dataProduct = await uploadProduct();
     //console.log('dataProduct', dataProduct);
     const idProduct = dataProduct?.id;
-    //console.log('idProducto: ', idProduct);
-
+    console.log('idProducto: ', idProduct);
+    /*
     if (idProduct) {
       uploadImages(idProduct);
       navigate('/successful-new-product');
@@ -56,11 +56,13 @@ const CreateProduct = () => {
       console.log(
         'El uploadImages() no fue ejecutado debido a que el producto no fue creado'
       );
-    }
+    }*/
   };
 
   const getImages = (arrayImages) => {
     setArrayImages(arrayImages);
+    console.log("ARRAR DE IMAGENES")
+    console.log(arrayImages)
   };
   //console.log('arrayImages', arrayImages);
 
@@ -109,26 +111,26 @@ const CreateProduct = () => {
   const uploadImages = (idProduct) => {
     const jwt = JSON.parse(localStorage.getItem('jwt'));
     //console.log('arrayImages', arrayImages);
-    arrayImages?.map((image) => {
-      //console.log(image);
-      fetch(`${baseUrl.url}/images/create/${idProduct}`, {
+    arrayImages.map((image) => {
+      let objecto = {
+        title: `Image ${propertyName.value}`,
+        url: image.value,
+      }
+      fetch(`${baseUrl.url}/images/update/${idProduct}`, {
         mode: 'cors',
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Access-Control-Allow-Origin': '*',
           Accept: 'application/json',
           'Content-Type': 'application/json',
           Authorization: `Bearer ${jwt}`,
         },
-        body: JSON.stringify({
-          title: `Image ${propertyName.value}`,
-          url: image.value,
-        }),
+        body: JSON.stringify(objecto),
       })
         .then((res) => res.json())
         .then((data) => {
           //setArrayImages(data);
-          //console.log('uploadImages ', data);
+          console.log('uploadImages ', data);
         })
         .catch((err) => console.log('Error: uploadImages ', err));
     });
@@ -148,7 +150,7 @@ const CreateProduct = () => {
     return iconNewString;
   };
 
-  /* Creación de nuevos atributos en la base de datos si no existen */
+  /* Creación de nuevos atributos en la base de datos si no existen
   const createNewAttribute = () => {
     const jwt = JSON.parse(localStorage.getItem('jwt'));
     //console.log('arrayAttributes1', arrayAttributes);
@@ -185,7 +187,7 @@ const CreateProduct = () => {
     });
     //console.log('newAttributs', newAttributes);
     return newAttributes;
-  };
+  };*/
 
   /* Filtramos los atributos que se quieren subir con los existentes en la base de datos a través del nombre del ícono y luego retornamos el ID de cada uno como objetos de un array */
   const uploadAttributeById = () => {
@@ -210,12 +212,19 @@ const CreateProduct = () => {
   const uploadProduct = async () => {
     const jwt = JSON.parse(localStorage.getItem('jwt'));
 
-    const attributesId = uploadAttributeById();
+    //const attributesId = uploadAttributeById();
 
     try {
+
+      const imagenes = arrayImages.map((image) => {
+        return{
+          title: `Image ${propertyName.value}`,
+          url: image.value,
+        }})
+
       const response = await fetch(`${baseUrl.url}/products/create`, {
         mode: 'cors',
-        method: 'POST',
+        method: 'POST', 
         headers: {
           'Access-Control-Allow-Origin': '*',
           Accept: 'application/json',
@@ -226,12 +235,13 @@ const CreateProduct = () => {
           name: propertyName.value,
           description: description,
           short_description: 'prueba',
-          active: false,
+          active: true,
           address: address.value,
           latitude: '-37.9702777',
           longitude: '-57.5955626',
           area: '150',
           average_score: 5.0,
+          image:[],
           city: {
             id: city?.id,
           },
@@ -241,12 +251,13 @@ const CreateProduct = () => {
           policiesSite: sitePolicy,
           policiesSecurityAndHealth: healthAndSafetyPolicy,
           policiesCancellation: cancellationPolicy,
-          attributes: attributesId, //[{ id: 1 }, { id: 2 }],
+          attributes: arrayAttributes
         }),
       });
 
       const json = await response.json();
       console.log('Data new product', json);
+      uploadImages(await json.id)
 
       //setNewProductId(json.id);
       return json;
@@ -311,7 +322,7 @@ const CreateProduct = () => {
         <section className={style.containerAttributes}>
           <h2>Atributos</h2>
           {/* <SelectAttribute /> */}
-          <AddAttribute getAttributes={getAttributes} />
+          <SelectAttribute getAttributes={getAttributes} />
         </section>
         <section className={style.containerPolicies}>
           <h2>Información importante</h2>

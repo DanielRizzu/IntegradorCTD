@@ -6,7 +6,7 @@ import style from '../CreateProduct.module.css';
 
 const AddImages = ({ getImages }) => {
   const [arrayImages, setArrayImages] = useState([]);
-  const [image, setImage] = useState({ title: '', url: '' });
+  const [image, setImage] = useState({ value: '', valid: null });
   const [msgError, setMsgError] = useState(null);
 
   useEffect(() => {
@@ -14,9 +14,8 @@ const AddImages = ({ getImages }) => {
   }, [image.value]);
 
   useEffect(() => {
-    getImages(arrayImages);
-    console.log(arrayImages)
-  }, [arrayImages, getImages]);
+    getImages(arrayImages)
+  }, [arrayImages]);
 
   const regularExpressions = {
     url: /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/,
@@ -52,8 +51,8 @@ const AddImages = ({ getImages }) => {
     const formatValid = isValidFormat(image.value);
     if (!urlRepeat) {
       if (formatValid) {
-        setArrayImages([...arrayImages, {title:'', url:image.value}]);
-        setImage({ title: '', url: '' });
+        setArrayImages([...arrayImages, {...image, valid: 'true'}]);
+        setImage({ value: '', valid: null });
       } else {
         setImage((prevState) => {
           return { ...prevState, valid: 'false' };
@@ -69,7 +68,7 @@ const AddImages = ({ getImages }) => {
   };
 
   const handleDeleteImage = (imgValue) => {
-    const newArrayImages = arrayImages.filter((img) => img.url !== imgValue);
+    const newArrayImages = arrayImages.filter((img) => img.value !== imgValue);
     setArrayImages(newArrayImages);
   };
 
@@ -84,10 +83,16 @@ const AddImages = ({ getImages }) => {
         //console.log('img', imageArray);
         return (
           <div className={style.containerInput} key={i}>
-            <p>{imageArray.url}</p>
+            <Input
+              state={imageArray}
+              //changeState={setImage}
+              //label="Imagen"
+              type="text"
+              readonly
+            />
             <button
               className={`${style.btn} ${style.btnDelete}`}
-              onClick={() => handleDeleteImage(imageArray.url)}
+              onClick={() => handleDeleteImage(imageArray.value)}
               type="button"
             >
               <FontAwesomeIcon icon={faXmark} />
