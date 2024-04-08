@@ -3,6 +3,7 @@ package com.grupo6.bookingviajes.controller;
 import com.grupo6.bookingviajes.model.Image;
 import com.grupo6.bookingviajes.model.ProductAttribute;
 import com.grupo6.bookingviajes.services.ImageService;
+import com.grupo6.bookingviajes.services.impl.ImageServiceImpl;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ import java.util.Optional;
 @RequestMapping("/images")
 public class ImageController {
     @Autowired
-    private ImageService imageService;
+    private ImageServiceImpl imageService;
 
     @GetMapping
     public ResponseEntity<List<Image>> getAllImages() {
@@ -26,7 +27,7 @@ public class ImageController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Image> getImageById(@PathVariable Integer id) {
+    public ResponseEntity<Object> getImageById(@PathVariable Integer id) {
         Optional<Image> findImage = imageService.getImageById(id);
         if (findImage.isPresent()) {
             return ResponseEntity.ok(findImage.get());
@@ -40,10 +41,10 @@ public class ImageController {
         return ResponseEntity.ok(imageService.saveImage(image,productId));
     }
 
-    /*@PostMapping("/create")
+    @PostMapping("/create")
     public ResponseEntity<Image> createImage(@RequestBody Image image) {
-        return ResponseEntity.ok(imageService.saveImage(image));
-    }*/
+        return ResponseEntity.ok(imageService.save(image));
+    }
 
     @PutMapping("/update/{productId}")
     public ResponseEntity<?> updateImage(@RequestBody Image image, @PathVariable Integer productId) throws Exception {

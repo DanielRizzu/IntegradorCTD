@@ -60,19 +60,20 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/users/create").permitAll()
                 .antMatchers("/favorites", "/favorites/**").permitAll()
                 .antMatchers("/products", "/cities", "/categories").permitAll()
+                .antMatchers("/images","images/{id}","images/**").permitAll()
                 /* USER */
                 .antMatchers("/reservations/create").permitAll()
                 /* ADMIN */
                 .antMatchers("/cities/create", "/cities/update", "/cities/delete/{id}").hasAuthority("ADMIN")
                 .antMatchers("/products/create", "/products/update", "/products/delete/{id}").hasAuthority("ADMIN")
+                //.antMatchers("/images/create","images/create/**").hasAuthority("ADMIN")
                 .antMatchers("/attributes", "/attributes/**").hasAnyAuthority("ADMIN", "SUPERUSER")
-                .antMatchers("/images/**").hasAuthority("ADMIN")
 
                 /* SUPERUSER */
                 .antMatchers("/users/update", "/users/delete/{id}").hasAuthority("SUPERUSER")
                 .antMatchers("/cities/create", "/cities/update", "/cities/delete/{id}").hasAuthority("SUPERUSER")
                 .antMatchers("/products/create", "/products/update", "/products/delete/{id}").hasAnyAuthority("ADMIN", "SUPERUSER")
-                .antMatchers("/images/**").hasAuthority("SUPERUSER")
+                //.antMatchers("/images/create","images/create/**").hasAuthority("SUPERUSER")
 
                 .anyRequest().permitAll();
                 //.anyRequest().authenticated();

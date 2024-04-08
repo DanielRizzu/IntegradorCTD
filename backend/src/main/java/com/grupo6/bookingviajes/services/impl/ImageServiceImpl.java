@@ -34,9 +34,16 @@ public class ImageServiceImpl implements ImageService {
     public Image saveImage(Image image, Integer productId) {
         Optional<Product> optProduct = productRepository.findById(productId);
 
-            image.setProduct(optProduct.get());
-            return imageRepository.save(image);
-        }
+        image.setProduct(optProduct.get());
+        return imageRepository.save(image);
+    }
+
+    @Override
+    public Image save(Image image){
+        imageRepository.save(image);
+        return image;
+    }
+
 
     @Override
     public Image updateImage(Image image,Integer productId) throws BadRequestException {
