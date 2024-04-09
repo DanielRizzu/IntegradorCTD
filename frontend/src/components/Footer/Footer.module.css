@@ -4,9 +4,22 @@
   padding: 21px 19px;
   position: static;
   bottom: 0;
-  width: 100%; /* Ancho al 100% de la ventana del navegador */
-  font-size: 24px;
+  width: 100%;
+  font-size: 20px;
   z-index: 10;
+}
+
+.aboutLink {
+  position: static;
+  bottom: 0;
+  color: #c8ced7; 
+  margin-left: 1350px;
+  transition: color 0.3s; 
+}
+
+.aboutLink:hover {
+  color: #ffff; 
+
 }
 
 @media screen and (min-width: 768px) {

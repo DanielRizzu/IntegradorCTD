@@ -1,0 +1,61 @@
+.aboutContainer {
+  background-color: #f2eded; 
+}
+.customH2 {
+  font-size: 30px;
+  color: #333;
+  padding-bottom: 1%;
+ padding-top: 5px;
+ font-style: italic;
+ text-indent: 10px;
+}
+
+.customParagraph {
+  font-size: 20px; 
+  color: #151212; 
+  text-indent: 30px;
+}
+
+.member {
+  text-align: center;
+  padding: 25px;
+  border: 1px solid #ddd; 
+}
+
+.member img {
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.member h3 {
+  font-size: 25px;
+  margin-bottom: 10px; 
+}
+
+.member h4 {
+  font-size: 21px; 
+  margin-bottom: 5px; 
+}
+
+.member p {
+  font-size: 20px;
+  color: #353434;
+  margin-bottom: 20px; 
+}
+
+.backHomeButton {
+  display: block;
+  margin-top: 10px;
+  text-decoration: none;
+  background-color: #284f74fc;
+  color: #fff;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.backHomeButton:hover {
+  background-color: #446c8f;
+}
